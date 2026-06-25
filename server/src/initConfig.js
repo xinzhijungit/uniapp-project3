@@ -29,7 +29,7 @@ const initConfigTable = async () => {
     // AI模型配置参数
     { key: 'ai_model_url', value: 'https://new-api.jointpilot.com/v1/chat/completions', type: 'STRING', desc: 'AI模型服务地址', effect: '决定AI标注服务的调用地址' },
     { key: 'ai_model_name', value: 'kimi-k2.6', type: 'STRING', desc: 'AI模型名称', effect: '决定使用的AI模型版本' },
-    { key: 'ai_api_key', value: '', type: 'STRING', desc: 'AI API密钥', effect: '用于调用AI服务的认证密钥' },
+    { key: 'ai_api_key', value: 'sk-jMOuCoOcoyEMGeEeMXlL7hIbuYtL0x9RpUSFWGpYu3USMb0o', type: 'STRING', desc: 'AI API密钥', effect: '用于调用AI服务的认证密钥' },
     { key: 'ai_max_tokens', value: '1024', type: 'INT', desc: '最大生成token数', effect: '限制AI返回内容的长度' },
     { key: 'ai_temperature', value: '0.1', type: 'FLOAT', desc: '生成温度', effect: '控制AI输出的创造性程度，值越低越确定' },
     { key: 'ai_timeout_seconds', value: '30', type: 'INT', desc: '单次调用超时时间(秒)', effect: '决定AI标注响应超时时间，影响用户体验' },

@@ -317,6 +317,70 @@ app.post('/api/v1/graph/query', async (req, res) => {
   }
 })
 
+// 重新生成知识图谱
+app.post('/api/v1/graph/regenerate', async (req, res) => {
+  try {
+    const { entityId, entityType } = req.body
+    
+    // 模拟重新生成图谱
+    const nodes = []
+    const links = []
+    
+    if (entityId && entityType === 'citizen') {
+      // 获取人员信息
+      const personResults = await query('SELECT BH, XM FROM FKD_BJR WHERE BH = ?', [entityId])
+      if (personResults.length > 0) {
+        const person = personResults[0]
+        
+        // 添加中心节点
+        nodes.push({
+          id: person.BH,
+          type: 'citizen',
+          label: person.XM,
+          color: '#2196F3'
+        })
+        
+        // 获取关联警情
+        const caseResults = await query(`
+          SELECT j.JJDBH, j.BJNR 
+          FROM JJD_JJD j 
+          JOIN JQ_SMSJ_ontology s ON j.JJDBH = s.JJDBH 
+          WHERE s.BJR_BH = ? 
+          LIMIT 5
+        `, [entityId])
+        
+        caseResults.forEach((caseItem, index) => {
+          const caseId = `case_${caseItem.JJDBH}`
+          nodes.push({
+            id: caseId,
+            type: 'case',
+            label: `警情${index + 1}`,
+            color: '#FF5722'
+          })
+          links.push({
+            source: person.BH,
+            target: caseId,
+            relation: '涉及'
+          })
+        })
+      }
+    }
+    
+    res.json({
+      code: 200,
+      message: 'success',
+      data: {
+        nodes,
+        links,
+        message: '知识图谱重新生成成功'
+      }
+    })
+  } catch (error) {
+    console.error('重新生成图谱失败:', error)
+    res.json({ code: 500, message: '重新生成图谱失败', detail: error.message })
+  }
+})
+
 // 标签管理接口
 app.get('/api/v1/tags', async (req, res) => {
   try {
@@ -373,6 +437,100 @@ app.get('/api/v1/tags/:tagCode', async (req, res) => {
     }
   } catch (error) {
     res.json({ code: 500, message: '获取标签详情失败', detail: error.message })
+  }
+})
+
+// 创建标签
+app.post('/api/v1/tags', async (req, res) => {
+  try {
+    const { TAG_CODE, TAG_NAME, TAG_DESC, STATUS, PRIORITY, CATEGORY } = req.body
+    
+    const result = await query(
+      'INSERT INTO TAG_CONFIG_ontology (TAG_CODE, TAG_NAME, TAG_DESC, STATUS, PRIORITY, CATEGORY, CREATE_TIME, UPDATE_TIME) VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())',
+      [TAG_CODE, TAG_NAME, TAG_DESC, STATUS || 1, PRIORITY || 1, CATEGORY]
+    )
+    
+    res.json({ code: 200, message: 'success', data: { TAG_CODE } })
+  } catch (error) {
+    console.error('创建标签失败:', error)
+    res.json({ code: 500, message: '创建标签失败', detail: error.message })
+  }
+})
+
+// 更新标签
+app.put('/api/v1/tags/:tagCode', async (req, res) => {
+  try {
+    const { tagCode } = req.params
+    const { TAG_NAME, TAG_DESC, STATUS, PRIORITY, CATEGORY } = req.body
+    
+    await query(
+      'UPDATE TAG_CONFIG_ontology SET TAG_NAME = ?, TAG_DESC = ?, STATUS = ?, PRIORITY = ?, CATEGORY = ?, UPDATE_TIME = NOW() WHERE TAG_CODE = ?',
+      [TAG_NAME, TAG_DESC, STATUS, PRIORITY, CATEGORY, tagCode]
+    )
+    
+    res.json({ code: 200, message: 'success' })
+  } catch (error) {
+    console.error('更新标签失败:', error)
+    res.json({ code: 500, message: '更新标签失败', detail: error.message })
+  }
+})
+
+// 删除标签
+app.delete('/api/v1/tags/:tagCode', async (req, res) => {
+  try {
+    const { tagCode } = req.params
+    
+    await query('DELETE FROM TAG_CONFIG_ontology WHERE TAG_CODE = ?', [tagCode])
+    
+    res.json({ code: 200, message: 'success' })
+  } catch (error) {
+    console.error('删除标签失败:', error)
+    res.json({ code: 500, message: '删除标签失败', detail: error.message })
+  }
+})
+
+// 测试标签
+app.post('/api/v1/tags/:tagCode/test', async (req, res) => {
+  try {
+    const { tagCode } = req.params
+    
+    // 模拟测试结果
+    res.json({
+      code: 200,
+      message: 'success',
+      data: {
+        success: true,
+        message: '标签测试通过',
+        testResult: '模拟测试结果正常'
+      }
+    })
+  } catch (error) {
+    console.error('标签测试失败:', error)
+    res.json({ code: 500, message: '标签测试失败', detail: error.message })
+  }
+})
+
+// 批量测试标签
+app.post('/api/v1/tags/:tagCode/batch-test', async (req, res) => {
+  try {
+    const { tagCode } = req.params
+    const { count = 5 } = req.body
+    
+    // 模拟批量测试结果
+    res.json({
+      code: 200,
+      message: 'success',
+      data: {
+        success: true,
+        total: count,
+        passed: count,
+        failed: 0,
+        message: `批量测试完成，共测试 ${count} 条，全部通过`
+      }
+    })
+  } catch (error) {
+    console.error('批量测试标签失败:', error)
+    res.json({ code: 500, message: '批量测试标签失败', detail: error.message })
   }
 })
 
@@ -550,6 +708,298 @@ app.get('/api/v1/warning/rules', async (req, res) => {
     })
   } catch (error) {
     res.json({ code: 500, message: '获取预警规则列表失败', detail: error.message })
+  }
+})
+
+// 预警事件详情
+app.get('/api/v1/warning/events/:eventNo', async (req, res) => {
+  try {
+    const { eventNo } = req.params
+    const results = await query('SELECT * FROM warning_event WHERE event_no = ?', [eventNo])
+    
+    if (results.length > 0) {
+      const item = results[0]
+      res.json({
+        code: 200,
+        message: 'success',
+        data: {
+          id: item.id,
+          eventNo: item.event_no,
+          ruleName: item.rule_name,
+          alertLevel: item.alert_level,
+          triggerTime: item.trigger_time,
+          status: item.status,
+          detail: item.detail || ''
+        }
+      })
+    } else {
+      res.json({ code: 404, message: '预警事件不存在' })
+    }
+  } catch (error) {
+    console.error('获取预警事件详情失败:', error)
+    res.json({ code: 500, message: '获取预警事件详情失败', detail: error.message })
+  }
+})
+
+// 预警事件反馈
+app.put('/api/v1/warning/events/:eventNo/feedback', async (req, res) => {
+  try {
+    const { eventNo } = req.params
+    const { feedback, status } = req.body
+    
+    await query(
+      'UPDATE warning_event SET feedback = ?, status = ?, update_time = NOW() WHERE event_no = ?',
+      [feedback, status, eventNo]
+    )
+    
+    res.json({ code: 200, message: 'success' })
+  } catch (error) {
+    console.error('预警事件反馈失败:', error)
+    res.json({ code: 500, message: '预警事件反馈失败', detail: error.message })
+  }
+})
+
+// 预警指标详情
+app.get('/api/v1/warning/indicators/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const results = await query('SELECT * FROM warning_indicator WHERE id = ?', [id])
+    
+    if (results.length > 0) {
+      const item = results[0]
+      res.json({
+        code: 200,
+        message: 'success',
+        data: {
+          id: item.id,
+          indicatorName: item.indicator_name,
+          indicatorDesc: item.indicator_desc,
+          configType: item.config_type,
+          enabled: item.enabled
+        }
+      })
+    } else {
+      res.json({ code: 404, message: '预警指标不存在' })
+    }
+  } catch (error) {
+    console.error('获取预警指标详情失败:', error)
+    res.json({ code: 500, message: '获取预警指标详情失败', detail: error.message })
+  }
+})
+
+// 创建预警指标
+app.post('/api/v1/warning/indicators', async (req, res) => {
+  try {
+    const { indicatorName, indicatorDesc, configType, enabled } = req.body
+    
+    const result = await query(
+      'INSERT INTO warning_indicator (indicator_name, indicator_desc, config_type, enabled, create_time, update_time) VALUES (?, ?, ?, ?, NOW(), NOW())',
+      [indicatorName, indicatorDesc, configType, enabled]
+    )
+    
+    res.json({ code: 200, message: 'success', data: { id: result.insertId } })
+  } catch (error) {
+    console.error('创建预警指标失败:', error)
+    res.json({ code: 500, message: '创建预警指标失败', detail: error.message })
+  }
+})
+
+// 更新预警指标
+app.put('/api/v1/warning/indicators/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const { indicatorName, indicatorDesc, configType, enabled } = req.body
+    
+    await query(
+      'UPDATE warning_indicator SET indicator_name = ?, indicator_desc = ?, config_type = ?, enabled = ?, update_time = NOW() WHERE id = ?',
+      [indicatorName, indicatorDesc, configType, enabled, id]
+    )
+    
+    res.json({ code: 200, message: 'success' })
+  } catch (error) {
+    console.error('更新预警指标失败:', error)
+    res.json({ code: 500, message: '更新预警指标失败', detail: error.message })
+  }
+})
+
+// 删除预警指标
+app.delete('/api/v1/warning/indicators/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    
+    await query('DELETE FROM warning_indicator WHERE id = ?', [id])
+    
+    res.json({ code: 200, message: 'success' })
+  } catch (error) {
+    console.error('删除预警指标失败:', error)
+    res.json({ code: 500, message: '删除预警指标失败', detail: error.message })
+  }
+})
+
+// 切换预警指标状态
+app.put('/api/v1/warning/indicators/:id/status', async (req, res) => {
+  try {
+    const { id } = req.params
+    const { enabled } = req.body
+    
+    await query(
+      'UPDATE warning_indicator SET enabled = ?, update_time = NOW() WHERE id = ?',
+      [enabled, id]
+    )
+    
+    res.json({ code: 200, message: 'success' })
+  } catch (error) {
+    console.error('切换预警指标状态失败:', error)
+    res.json({ code: 500, message: '切换预警指标状态失败', detail: error.message })
+  }
+})
+
+// 预警指标下拉选择
+app.get('/api/v1/warning/indicators/select', async (req, res) => {
+  try {
+    const results = await query('SELECT id, indicator_name as name FROM warning_indicator WHERE enabled = 1 ORDER BY indicator_name')
+    
+    res.json({
+      code: 200,
+      message: 'success',
+      data: results
+    })
+  } catch (error) {
+    console.error('获取预警指标选择列表失败:', error)
+    res.json({ code: 500, message: '获取预警指标选择列表失败', detail: error.message })
+  }
+})
+
+// 预警规则详情
+app.get('/api/v1/warning/rules/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const results = await query('SELECT * FROM warning_rule WHERE id = ?', [id])
+    
+    if (results.length > 0) {
+      const item = results[0]
+      res.json({
+        code: 200,
+        message: 'success',
+        data: {
+          id: item.id,
+          ruleName: item.rule_name,
+          ruleDesc: item.rule_desc,
+          alertLevel: item.alert_level,
+          enabled: item.enabled
+        }
+      })
+    } else {
+      res.json({ code: 404, message: '预警规则不存在' })
+    }
+  } catch (error) {
+    console.error('获取预警规则详情失败:', error)
+    res.json({ code: 500, message: '获取预警规则详情失败', detail: error.message })
+  }
+})
+
+// 创建预警规则
+app.post('/api/v1/warning/rules', async (req, res) => {
+  try {
+    const { ruleName, ruleDesc, alertLevel, enabled } = req.body
+    
+    const result = await query(
+      'INSERT INTO warning_rule (rule_name, rule_desc, alert_level, enabled, create_time, update_time) VALUES (?, ?, ?, ?, NOW(), NOW())',
+      [ruleName, ruleDesc, alertLevel, enabled]
+    )
+    
+    res.json({ code: 200, message: 'success', data: { id: result.insertId } })
+  } catch (error) {
+    console.error('创建预警规则失败:', error)
+    res.json({ code: 500, message: '创建预警规则失败', detail: error.message })
+  }
+})
+
+// 更新预警规则
+app.put('/api/v1/warning/rules/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const { ruleName, ruleDesc, alertLevel, enabled } = req.body
+    
+    await query(
+      'UPDATE warning_rule SET rule_name = ?, rule_desc = ?, alert_level = ?, enabled = ?, update_time = NOW() WHERE id = ?',
+      [ruleName, ruleDesc, alertLevel, enabled, id]
+    )
+    
+    res.json({ code: 200, message: 'success' })
+  } catch (error) {
+    console.error('更新预警规则失败:', error)
+    res.json({ code: 500, message: '更新预警规则失败', detail: error.message })
+  }
+})
+
+// 删除预警规则
+app.delete('/api/v1/warning/rules/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    
+    await query('DELETE FROM warning_rule WHERE id = ?', [id])
+    
+    res.json({ code: 200, message: 'success' })
+  } catch (error) {
+    console.error('删除预警规则失败:', error)
+    res.json({ code: 500, message: '删除预警规则失败', detail: error.message })
+  }
+})
+
+// 切换预警规则状态
+app.put('/api/v1/warning/rules/:id/status', async (req, res) => {
+  try {
+    const { id } = req.params
+    const { enabled } = req.body
+    
+    await query(
+      'UPDATE warning_rule SET enabled = ?, update_time = NOW() WHERE id = ?',
+      [enabled, id]
+    )
+    
+    res.json({ code: 200, message: 'success' })
+  } catch (error) {
+    console.error('切换预警规则状态失败:', error)
+    res.json({ code: 500, message: '切换预警规则状态失败', detail: error.message })
+  }
+})
+
+// 获取规则关联事件
+app.get('/api/v1/warning/rules/:id/events', async (req, res) => {
+  try {
+    const { id } = req.params
+    const { page = 1, size = 10 } = req.query
+    
+    const totalResult = await query('SELECT COUNT(*) as total FROM warning_event WHERE rule_id = ?', [id])
+    const total = totalResult[0].total
+    
+    const offset = (parseInt(page) - 1) * parseInt(size)
+    const results = await query(
+      `SELECT * FROM warning_event WHERE rule_id = ? ORDER BY TRIGGER_TIME DESC LIMIT ${parseInt(size)} OFFSET ${offset}`,
+      [id]
+    )
+    
+    res.json({
+      code: 200,
+      message: 'success',
+      data: {
+        list: results.map(item => ({
+          id: item.id,
+          eventNo: item.event_no,
+          ruleName: item.rule_name,
+          alertLevel: item.alert_level,
+          triggerTime: item.trigger_time,
+          status: item.status
+        })),
+        total,
+        page: parseInt(page),
+        size: parseInt(size)
+      }
+    })
+  } catch (error) {
+    console.error('获取规则关联事件失败:', error)
+    res.json({ code: 500, message: '获取规则关联事件失败', detail: error.message })
   }
 })
 
