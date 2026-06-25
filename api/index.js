@@ -420,18 +420,92 @@ app.post('/api/v1/graph/query', async (req, res) => {
     const nodes = []
     const links = []
     
-    if (entityId) {
-      // 添加中心节点
-      if (entityType === 'citizen') {
-        const personResults = await query('SELECT BH, XM FROM FKD_BJR WHERE BH = ?', [entityId])
-        if (personResults.length > 0) {
+    if (entityId && entityType === 'citizen') {
+      // 获取人员详细信息
+      const personResults = await query('SELECT * FROM FKD_BJR WHERE BH = ?', [entityId])
+      if (personResults.length > 0) {
+        const person = personResults[0]
+        
+        // 添加中心节点
+        nodes.push({
+          id: person.BH,
+          type: 'citizen',
+          label: person.XM || '未知',
+          color: '#2196F3',
+          properties: person
+        })
+        
+        // 获取关联警情
+        const caseResults = await query(`
+          SELECT j.JJDBH, j.BJNR, j.BJSJ 
+          FROM JJD_JJD j 
+          JOIN JQ_SMSJ_ontology s ON j.JJDBH = s.JJDBH 
+          WHERE s.BJR_BH = ? 
+          ORDER BY j.BJSJ DESC
+          LIMIT 5
+        `, [entityId])
+        
+        caseResults.forEach((caseItem, index) => {
+          const caseId = `case_${caseItem.JJDBH}`
           nodes.push({
-            id: personResults[0].BH,
-            type: 'citizen',
-            label: personResults[0].XM,
-            color: '#2196F3'
+            id: caseId,
+            type: 'case',
+            label: `警情${index + 1}`,
+            color: '#FF5722',
+            properties: caseItem
+          })
+          links.push({
+            source: person.BH,
+            target: caseId,
+            relation: '涉及'
+          })
+        })
+        
+        // 获取户籍信息
+        const householdResults = await query(`
+          SELECT * FROM person_household 
+          WHERE id_card = ? 
+          LIMIT 1
+        `, [person.ZJHM])
+        
+        if (householdResults.length > 0) {
+          const household = householdResults[0]
+          const householdId = `household_${household.id}`
+          nodes.push({
+            id: householdId,
+            type: 'household',
+            label: '户籍信息',
+            color: '#4CAF50',
+            properties: household
+          })
+          links.push({
+            source: person.BH,
+            target: householdId,
+            relation: '所属'
           })
         }
+        
+        // 获取案底记录
+        const criminalResults = await query(`
+          SELECT * FROM criminal_record_db 
+          WHERE id_card = ?
+        `, [person.ZJHM])
+        
+        criminalResults.forEach((record, index) => {
+          const recordId = `criminal_${record.id}`
+          nodes.push({
+            id: recordId,
+            type: 'criminal',
+            label: `案底${index + 1}`,
+            color: '#9C27B0',
+            properties: record
+          })
+          links.push({
+            source: person.BH,
+            target: recordId,
+            relation: '有记录'
+          })
+        })
       }
     }
     
