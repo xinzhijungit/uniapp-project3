@@ -67,25 +67,25 @@ app.post('/api/v1/search/entity', async (req, res) => {
     
     let personInfo = null
     let queryParams = []
-    let query = 'SELECT * FROM FKD_BJR WHERE 1=1'
+    let sqlQuery = 'SELECT * FROM FKD_BJR WHERE 1=1'
     
     if (idCard) {
-      query += ' AND ZJHM = ?'
+      sqlQuery += ' AND ZJHM = ?'
       queryParams.push(idCard)
     } else if (plateNumber) {
-      query += ' AND CPH_ontology = ?'
+      sqlQuery += ' AND CPH_ontology = ?'
       queryParams.push(plateNumber)
     } else if (phoneNumber) {
-      query += ' AND LXDH = ?'
+      sqlQuery += ' AND LXDH = ?'
       queryParams.push(phoneNumber)
     } else if (caseNumber) {
-      query = `SELECT b.* FROM FKD_BJR b JOIN JQ_SMSJ_ontology s ON b.BH = s.BJR_BH JOIN JJD_JJD j ON s.JJDBH = j.JJDBH WHERE j.JJDBH = ?`
+      sqlQuery = `SELECT b.* FROM FKD_BJR b JOIN JQ_SMSJ_ontology s ON b.BH = s.BJR_BH JOIN JJD_JJD j ON s.JJDBH = j.JJDBH WHERE j.JJDBH = ?`
       queryParams.push(caseNumber)
     }
     
-    query += ' LIMIT 1'
+    sqlQuery += ' LIMIT 1'
     
-    const results = await query(query, queryParams)
+    const results = await query(sqlQuery, queryParams)
     if (results.length > 0) {
       personInfo = results[0]
     }
