@@ -1,28 +1,22 @@
 {
   "version": 2,
   "name": "xian-police-platform",
-  "builds": [
+  "framework": null,
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist/build/h5",
+  "installCommand": "npm install",
+  "rewrites": [
     {
-      "src": "server/api/index.js",
-      "use": "@vercel/node"
+      "source": "/api/(.*)",
+      "destination": "/server/api/index.js"
     },
     {
-      "src": "dist/build/h5/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/server/api/index.js"
+      "source": "/assets/(.*)",
+      "destination": "/dist/build/h5/assets/$1"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "/dist/build/h5/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/dist/build/h5/index.html"
+      "source": "/(.*)",
+      "destination": "/dist/build/h5/index.html"
     }
   ]
 }
