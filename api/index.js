@@ -210,6 +210,17 @@ app.post('/api/v1/search/entity', async (req, res) => {
       // 获取案底记录
       const personCriminalRecords = await query('SELECT * FROM criminal_record_db WHERE id_card = ?', [personInfo.ZJHM])
       
+      // 从数据库读取风险评分配置
+      const configResults = await query('SELECT CONFIG_KEY, CONFIG_VALUE FROM XAGA_config WHERE CONFIG_KEY LIKE ?', ['risk_%', 'weight_%'])
+      const config = {}
+      configResults.forEach(row => {
+        config[row.CONFIG_KEY] = row.CONFIG_VALUE
+      })
+      const riskScoreBase = parseInt(config.risk_score_base) || 50
+      const riskScoreKeyPerson = parseInt(config.risk_score_key_person) || 30
+      const riskScoreHigh = parseInt(config.risk_score_high) || 30
+      const riskScoreMedium = parseInt(config.risk_score_medium) || 15
+      
       // 计算预警等级
       const hasWanted = personCriminalRecords.some(r => r.prison_status === '通缉')
       const warningLevel = hasWanted 
@@ -219,46 +230,73 @@ app.post('/api/v1/search/entity', async (req, res) => {
         : { level: 'normal', label: '正常人员', description: '目标人员本人及关联户籍成员无案底库关联记录' }
       
       // 计算风险评分
-      let riskScore = 50
+      let riskScore = riskScoreBase
       const riskTags = []
       
       if (personInfo.SFZDRY === '1') {
         riskTags.push('重点人员')
-        riskScore += 30
+        riskScore += riskScoreKeyPerson
       }
-      if (warningLevel.level === 'high') riskScore += 30
-      if (warningLevel.level === 'medium') riskScore += 15
+      if (warningLevel.level === 'high') riskScore += riskScoreHigh
+      if (warningLevel.level === 'medium') riskScore += riskScoreMedium
       riskScore = Math.min(riskScore, 100)
+      
+      // 从数据库读取建议配置
+      const suggestionResults = await query('SELECT CONFIG_KEY, CONFIG_VALUE FROM XAGA_config WHERE CONFIG_KEY LIKE ?', ['suggestion_%'])
+      const suggestionConfig = {}
+      suggestionResults.forEach(row => {
+        suggestionConfig[row.CONFIG_KEY] = row.CONFIG_VALUE
+      })
       
       // 生成建议
       const suggestions = []
       if (warningLevel.level === 'high') {
-        suggestions.push('建议立即布控拦截，防止嫌疑人逃脱')
-        suggestions.push('通知相关部门协同配合抓捕')
+        const highSuggestions = suggestionConfig.suggestion_high ? JSON.parse(suggestionConfig.suggestion_high) : []
+        suggestions.push(...highSuggestions)
       } else if (warningLevel.level === 'medium') {
-        suggestions.push('建议加强日常监控，关注其活动轨迹')
-        suggestions.push('核查其近期活动情况')
+        const mediumSuggestions = suggestionConfig.suggestion_medium ? JSON.parse(suggestionConfig.suggestion_medium) : []
+        suggestions.push(...mediumSuggestions)
       } else {
-        suggestions.push('建议常规处理，注意观察异常行为')
+        const normalSuggestions = suggestionConfig.suggestion_normal ? JSON.parse(suggestionConfig.suggestion_normal) : []
+        suggestions.push(...normalSuggestions)
       }
       
-      // 构建本体特征（适配前端格式 {type, title, desc}）
+      // 从数据库读取特征配置
+      const featureResults = await query('SELECT CONFIG_KEY, CONFIG_VALUE FROM XAGA_config WHERE CONFIG_KEY LIKE ?', ['feature_%'])
+      const featureConfig = {}
+      featureResults.forEach(row => {
+        featureConfig[row.CONFIG_KEY] = JSON.parse(row.CONFIG_VALUE)
+      })
+      
+      // 构建本体特征（从数据库配置）
       const features = []
-      if (personInfo.SFZDRY === '1') {
-        features.push({ type: 'high', title: '重点人员标识', desc: '该人员被标记为重点监控对象' })
+      if (personInfo.SFZDRY === '1' && featureConfig.feature_key_person) {
+        features.push(featureConfig.feature_key_person)
       }
-      if (personInfo.CPH_ontology) {
-        features.push({ type: 'normal', title: '关联车牌', desc: `车牌号：${personInfo.CPH_ontology}` })
+      if (personInfo.CPH_ontology && featureConfig.feature_plate) {
+        features.push({
+          ...featureConfig.feature_plate,
+          desc: `${featureConfig.feature_plate.desc_prefix || '车牌号：'}${personInfo.CPH_ontology}`
+        })
       }
-      if (personInfo.LXDH) {
-        features.push({ type: 'normal', title: '联系电话', desc: `电话：${personInfo.LXDH}` })
+      if (personInfo.LXDH && featureConfig.feature_phone) {
+        features.push({
+          ...featureConfig.feature_phone,
+          desc: `${featureConfig.feature_phone.desc_prefix || '电话：'}${personInfo.LXDH}`
+        })
       }
-      if (caseRecords.length > 0) {
-        features.push({ type: 'medium', title: '历史警情', desc: `共有${caseRecords.length}次警情记录` })
+      if (caseRecords.length > 0 && featureConfig.feature_case) {
+        features.push({
+          ...featureConfig.feature_case,
+          desc: `${featureConfig.feature_case.desc_prefix || '共有'}${caseRecords.length}${featureConfig.feature_case.desc_suffix || '次警情记录'}`
+        })
       }
-      if (personCriminalRecords.length > 0) {
+      if (personCriminalRecords.length > 0 && featureConfig.feature_criminal) {
         const criminalDesc = personCriminalRecords.map(r => r.prison_status || '有案底').join('、')
-        features.push({ type: 'high', title: '案底记录', desc: `服刑状态：${criminalDesc}` })
+        features.push({
+          ...featureConfig.feature_criminal,
+          desc: `${featureConfig.feature_criminal.desc_prefix || '服刑状态：'}${criminalDesc}`
+        })
       }
       
       // 从数据库查询标签配置
