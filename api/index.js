@@ -376,6 +376,64 @@ app.get('/api/v1/tags/:tagCode', async (req, res) => {
   }
 })
 
+// 获取标签示例列表
+app.get('/api/v1/tags/:tagCode/examples', async (req, res) => {
+  try {
+    const { tagCode } = req.params
+    const results = await query('SELECT * FROM TAG_EXAMPLE_ontology WHERE TAG_CODE = ? ORDER BY CREATE_TIME DESC', [tagCode])
+    
+    res.json({
+      code: 200,
+      message: 'success',
+      data: results.map(item => ({
+        id: item.ID,
+        tagCode: item.TAG_CODE,
+        exampleText: item.EXAMPLE_TEXT,
+        expectedResult: item.EXPECTED_RESULT,
+        entityKey: item.ENTITY_KEY,
+        graphData: item.GRAPH_DATA,
+        aiSummary: item.AI_SUMMARY,
+        createTime: item.CREATE_TIME
+      }))
+    })
+  } catch (error) {
+    console.error('获取标签示例失败:', error)
+    res.json({ code: 500, message: '获取标签示例失败', detail: error.message })
+  }
+})
+
+// 添加标签示例
+app.post('/api/v1/tags/:tagCode/examples', async (req, res) => {
+  try {
+    const { tagCode } = req.params
+    const { EXAMPLE_TEXT, EXPECTED_RESULT, ENTITY_KEY, GRAPH_DATA, AI_SUMMARY } = req.body
+    
+    const result = await query(
+      'INSERT INTO TAG_EXAMPLE_ontology (TAG_CODE, EXAMPLE_TEXT, EXPECTED_RESULT, ENTITY_KEY, GRAPH_DATA, AI_SUMMARY, CREATE_TIME) VALUES (?, ?, ?, ?, ?, ?, NOW())',
+      [tagCode, EXAMPLE_TEXT, EXPECTED_RESULT, ENTITY_KEY, GRAPH_DATA, AI_SUMMARY]
+    )
+    
+    res.json({ code: 200, message: 'success', data: { id: result.insertId } })
+  } catch (error) {
+    console.error('添加标签示例失败:', error)
+    res.json({ code: 500, message: '添加标签示例失败', detail: error.message })
+  }
+})
+
+// 删除标签示例
+app.delete('/api/v1/tags/:tagCode/examples/:exampleId', async (req, res) => {
+  try {
+    const { exampleId } = req.params
+    
+    await query('DELETE FROM TAG_EXAMPLE_ontology WHERE ID = ?', [exampleId])
+    
+    res.json({ code: 200, message: 'success' })
+  } catch (error) {
+    console.error('删除标签示例失败:', error)
+    res.json({ code: 500, message: '删除标签示例失败', detail: error.message })
+  }
+})
+
 // 预警事件列表
 app.get('/api/v1/warning/events', async (req, res) => {
   try {
