@@ -53,10 +53,10 @@ async function callAIModel(prompt) {
       })
       
       // 使用配置或默认值
-      const aiModelUrl = config.ai_model_url || 'https://api.deepseek.com/v1/chat/completions'
-      const aiModelName = config.ai_model_name || 'deepseek-chat'
+      const aiModelUrl = config.ai_model_url || 'https://new-api.jointpilot.com/v1/chat/completions'
+      const aiModelName = config.ai_model_name || 'kimi-k2.6'
       const aiApiKey = config.ai_api_key || ''
-      const aiMaxTokens = parseInt(config.ai_max_tokens) || 10
+      const aiMaxTokens = parseInt(config.ai_max_tokens) || 1024
       const aiTemperature = parseFloat(config.ai_temperature) || 0.1
       const aiTimeout = parseInt(config.ai_timeout_seconds) * 1000 || 30000
       
