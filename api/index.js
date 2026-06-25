@@ -261,47 +261,14 @@ app.post('/api/v1/search/entity', async (req, res) => {
         features.push({ type: 'high', title: '案底记录', desc: `服刑状态：${criminalDesc}` })
       }
       
-      // 构建标签数据（适配前端格式 {tagCode, tagName, priority, description}）
-      const tags = []
-      if (personInfo.SFZDRY === '1') {
-        tags.push({
-          tagCode: 'key_person',
-          tagName: '重点人员',
-          priority: 3,
-          description: '该人员被系统标记为重点监控对象，需要特别关注其活动轨迹和行为动态。'
-        })
-      }
-      if (warningLevel.level === 'high') {
-        tags.push({
-          tagCode: 'high_risk',
-          tagName: '高危人员',
-          priority: 3,
-          description: warningLevel.description
-        })
-      } else if (warningLevel.level === 'medium') {
-        tags.push({
-          tagCode: 'medium_risk',
-          tagName: '关注人员',
-          priority: 2,
-          description: warningLevel.description
-        })
-      }
-      if (personCriminalRecords.length > 0) {
-        tags.push({
-          tagCode: 'criminal_record',
-          tagName: '有案底',
-          priority: 2,
-          description: `该人员有${personCriminalRecords.length}条案底记录，需持续关注其社会行为。`
-        })
-      }
-      if (caseRecords.length > 0) {
-        tags.push({
-          tagCode: 'frequent_alarm',
-          tagName: '频繁报警',
-          priority: 1,
-          description: `该人员涉及${caseRecords.length}次警情，建议关注其社会关系。`
-        })
-      }
+      // 从数据库查询标签配置
+      const tagResults = await query('SELECT TAG_CODE, TAG_NAME, PRIORITY, TAG_DESC FROM TAG_CONFIG_ontology WHERE STATUS = 1')
+      const tags = tagResults.map(tag => ({
+        tagCode: tag.TAG_CODE,
+        tagName: tag.TAG_NAME,
+        priority: tag.PRIORITY || 1,
+        description: tag.TAG_DESC || ''
+      }))
       
       // 构建知识图谱数据
       const nodes = []
