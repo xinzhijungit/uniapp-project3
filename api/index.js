@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const mysql = require('mysql2/promise')
 const https = require('https')
+const fs = require('fs')
+const path = require('path')
 
 // 数据库连接配置（直接写在代码中）
 const DB_CONFIG = {
@@ -417,173 +419,70 @@ app.post('/api/v1/search/entity', async (req, res) => {
   }
 })
 
-// 知识图谱查询接口 - 根据知识图谱数据文档实现
+// 知识图谱查询接口 - 从 graph-data.json 文件读取数据
 app.post('/api/v1/graph/query', async (req, res) => {
   try {
     const { entityId, entityType } = req.body
+    
+    // 读取 graph-data.json 文件
+    const graphDataPath = path.join(__dirname, '..', 'server', 'graph-data.json')
+    const graphData = JSON.parse(fs.readFileSync(graphDataPath, 'utf8'))
     
     const nodes = []
     const links = []
     const nodeIds = new Set() // 用于去重
     
     if (entityId && entityType === 'citizen') {
-      // 1. 获取中心人员节点
-      const personResults = await query('SELECT * FROM FKD_BJR WHERE BH = ?', [entityId])
-      if (personResults.length > 0) {
-        const person = personResults[0]
+      // 1. 查找中心人员节点
+      const personNode = graphData.nodes.find(n => n.id === entityId && n.type === 'citizen')
+      
+      if (personNode) {
+        // 添加中心节点
+        nodes.push(personNode)
+        nodeIds.add(personNode.id)
         
-        nodes.push({
-          id: person.BH,
-          type: 'citizen',
-          label: person.XM || '未知',
-          color: '#2196F3',
-          properties: {
-            name: person.XM,
-            idCard: person.ZJHM,
-            phone: person.LXDH,
-            address: person.HJDZ,
-            isKeyPerson: person.SFZD
-          }
-        })
-        nodeIds.add(person.BH)
+        // 2. 查找与该人员相关的所有关系
+        const personLinks = graphData.links.filter(l => l.source === entityId || l.target === entityId)
         
-        // 2. 获取人员-案件关系（涉及）- 通过 JQ_SMSJ_ontology
-        const smsjResults = await query(`
-          SELECT s.SMSJ_ID, s.JJDBH, j.BJNR, j.BJSJ
-          FROM JQ_SMSJ_ontology s
-          JOIN JJD_JJD j ON s.JJDBH = j.JJDBH
-          WHERE s.BJR_BH = ?
-          ORDER BY j.BJSJ DESC
-        `, [entityId])
-        
-        for (const smsj of smsjResults) {
-          const caseId = `case_${smsj.JJDBH}`
+        for (const link of personLinks) {
+          // 添加关系
+          links.push(link)
           
-          // 添加案件节点
-          if (!nodeIds.has(caseId)) {
-            nodes.push({
-              id: caseId,
-              type: 'case',
-              label: smsj.JJDBH,
-              color: '#F44336',
-              properties: {
-                caseNo: smsj.JJDBH,
-                content: smsj.BJNR,
-                time: smsj.BJSJ
-              }
-            })
-            nodeIds.add(caseId)
-          }
+          // 获取关联节点ID（不是当前人员的那个节点）
+          const relatedNodeId = link.source === entityId ? link.target : link.source
           
-          // 添加人员-案件关系
-          links.push({
-            source: person.BH,
-            target: caseId,
-            relation: '涉及'
-          })
-          
-          // 3. 获取民警-案件关系（负责）- 通过 JQ_MJFZ_ontology
-          const mjfzResults = await query(`
-            SELECT m.MJFZ_ID, m.MJ_BH, m.MJ_XM, m.MJ_ZN, m.MJ_ZT, m.MJ_SSDW, m.MJ_LXDH
-            FROM JQ_MJFZ_ontology m
-            WHERE m.JJDBH = ?
-          `, [smsj.JJDBH])
-          
-          for (const mjfz of mjfzResults) {
-            const policeId = `police_${mjfz.MJ_BH}`
-            
-            // 添加民警节点
-            if (!nodeIds.has(policeId)) {
-              nodes.push({
-                id: policeId,
-                type: 'police',
-                label: mjfz.MJ_XM,
-                color: '#4CAF50',
-                properties: {
-                  policeNo: mjfz.MJ_BH,
-                  name: mjfz.MJ_XM,
-                  duty: mjfz.MJ_ZN,
-                  status: mjfz.MJ_ZT,
-                  unit: mjfz.MJ_SSDW,
-                  phone: mjfz.MJ_LXDH
+          // 如果节点还未添加，则查找并添加
+          if (!nodeIds.has(relatedNodeId)) {
+            const relatedNode = graphData.nodes.find(n => n.id === relatedNodeId)
+            if (relatedNode) {
+              nodes.push(relatedNode)
+              nodeIds.add(relatedNode.id)
+              
+              // 3. 对于案件节点，还需要查找关联的民警节点
+              if (relatedNode.type === 'case') {
+                // 查找与该案件相关的民警关系
+                const policeLinks = graphData.links.filter(l => 
+                  l.target === relatedNodeId && l.relation === '负责'
+                )
+                
+                for (const policeLink of policeLinks) {
+                  // 添加民警-案件关系
+                  if (!links.find(l => l.source === policeLink.source && l.target === policeLink.target)) {
+                    links.push(policeLink)
+                  }
+                  
+                  // 添加民警节点
+                  if (!nodeIds.has(policeLink.source)) {
+                    const policeNode = graphData.nodes.find(n => n.id === policeLink.source)
+                    if (policeNode) {
+                      nodes.push(policeNode)
+                      nodeIds.add(policeNode.id)
+                    }
+                  }
                 }
-              })
-              nodeIds.add(policeId)
+              }
             }
-            
-            // 添加民警-案件关系
-            links.push({
-              source: policeId,
-              target: caseId,
-              relation: '负责'
-            })
           }
-        }
-        
-        // 4. 获取人员-户籍关系（所属）- 通过 person_household
-        const householdResults = await query(`
-          SELECT h.*
-          FROM person_household h
-          WHERE h.id_card = ?
-        `, [person.ZJHM])
-        
-        for (const household of householdResults) {
-          const householdId = `household_${household.household_no || household.id}`
-          
-          if (!nodeIds.has(householdId)) {
-            nodes.push({
-              id: householdId,
-              type: 'household',
-              label: household.household_no || '户籍',
-              color: '#FF9800',
-              properties: {
-                householdNo: household.household_no,
-                address: household.address,
-                householdType: household.household_type
-              }
-            })
-            nodeIds.add(householdId)
-          }
-          
-          links.push({
-            source: person.BH,
-            target: householdId,
-            relation: '所属'
-          })
-        }
-        
-        // 5. 获取人员-案底关系（有案底）- 通过 criminal_record_db
-        const criminalResults = await query(`
-          SELECT c.*
-          FROM criminal_record_db c
-          WHERE c.id_card = ?
-        `, [person.ZJHM])
-        
-        for (const record of criminalResults) {
-          const criminalId = `criminal_${record.id}`
-          
-          if (!nodeIds.has(criminalId)) {
-            nodes.push({
-              id: criminalId,
-              type: 'criminal',
-              label: record.crime_name || '案底',
-              color: '#9C27B0',
-              properties: {
-                name: record.name,
-                crimeName: record.crime_name,
-                status: record.serving_status,
-                sentenceDate: record.sentence_date,
-                sentenceMonths: record.sentence_months
-              }
-            })
-            nodeIds.add(criminalId)
-          }
-          
-          links.push({
-            source: person.BH,
-            target: criminalId,
-            relation: '有案底'
-          })
         }
       }
     }
