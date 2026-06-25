@@ -242,6 +242,88 @@ app.post('/api/v1/search/entity', async (req, res) => {
         suggestions.push('建议常规处理，注意观察异常行为')
       }
       
+      // 构建本体特征
+      const features = []
+      if (personInfo.SFZDRY === '1') {
+        features.push({ name: '重点人员标识', value: '是', type: 'high' })
+      }
+      if (personInfo.CPH_ontology) {
+        features.push({ name: '关联车牌', value: personInfo.CPH_ontology, type: 'normal' })
+      }
+      if (personInfo.LXDH) {
+        features.push({ name: '联系电话', value: personInfo.LXDH, type: 'normal' })
+      }
+      if (caseRecords.length > 0) {
+        features.push({ name: '历史警情数', value: `${caseRecords.length}次`, type: 'medium' })
+      }
+      if (personCriminalRecords.length > 0) {
+        features.push({ name: '案底记录', value: `${personCriminalRecords.length}条`, type: 'high' })
+      }
+      
+      // 构建知识图谱数据
+      const nodes = []
+      const links = []
+      
+      // 添加中心节点（人员）
+      nodes.push({
+        id: personInfo.BH,
+        type: 'citizen',
+        label: personInfo.XM || '未知',
+        color: '#2196F3',
+        data: personInfo
+      })
+      
+      // 添加警情节点
+      caseRecords.forEach((caseItem, index) => {
+        const caseId = `case_${caseItem.caseNumber}`
+        nodes.push({
+          id: caseId,
+          type: 'case',
+          label: `警情${index + 1}`,
+          color: '#FF5722',
+          data: caseItem
+        })
+        links.push({
+          source: personInfo.BH,
+          target: caseId,
+          relation: '涉及'
+        })
+      })
+      
+      // 添加户籍节点
+      if (householdInfo.length > 0) {
+        const household = householdInfo[0]
+        nodes.push({
+          id: `household_${household.id}`,
+          type: 'household',
+          label: '户籍信息',
+          color: '#4CAF50',
+          data: household
+        })
+        links.push({
+          source: personInfo.BH,
+          target: `household_${household.id}`,
+          relation: '所属'
+        })
+      }
+      
+      // 添加案底节点
+      personCriminalRecords.forEach((record, index) => {
+        const recordId = `criminal_${record.id}`
+        nodes.push({
+          id: recordId,
+          type: 'criminal',
+          label: `案底${index + 1}`,
+          color: '#9C27B0',
+          data: record
+        })
+        links.push({
+          source: personInfo.BH,
+          target: recordId,
+          relation: '有记录'
+        })
+      })
+      
       res.json({
         code: 200,
         message: 'success',
@@ -256,10 +338,10 @@ app.post('/api/v1/search/entity', async (req, res) => {
           householdCriminalRecords: [],
           warningLevel,
           suggestions,
-          graphData: { nodes: [], links: [] },
-          analysisText: '基于多维度数据分析完成',
-          features: [],
-          tags: []
+          graphData: { nodes, links },
+          analysisText: `基于多维度数据分析完成，该人员风险评分为${riskScore}分，${warningLevel.description}`,
+          features,
+          tags: riskTags
         }
       })
     } else {
