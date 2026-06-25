@@ -2,11 +2,11 @@ const mysql = require('mysql2/promise')
 
 // 数据库连接配置（直接写在代码中）
 const DB_CONFIG = {
-  host: 'your-database-host',
+  host: 'mysql.sqlpub.com',
   port: 3306,
-  user: 'your-database-user',
-  password: 'your-database-password',
-  database: 'your-database-name'
+  user: 'peter_xin',
+  password: 's7oADISJGcpiQuQn',
+  database: 'dify_test_peter'
 }
 
 const pool = mysql.createPool({
