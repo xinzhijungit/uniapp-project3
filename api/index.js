@@ -420,17 +420,60 @@ app.post('/api/v1/search/entity', async (req, res) => {
 })
 
 // 知识图谱查询接口 - 从 graph-data.json 文件读取数据
+// 支持关系筛选和路径长度为3的关联查询
 app.post('/api/v1/graph/query', async (req, res) => {
   try {
-    const { entityId, entityType } = req.body
+    const { entityId, entityType, relationFilters = [], maxDepth = 2 } = req.body
     
     // 读取 graph-data.json 文件
     const graphDataPath = path.join(__dirname, '..', 'server', 'graph-data.json')
     const graphData = JSON.parse(fs.readFileSync(graphDataPath, 'utf8'))
     
+    // 如果没有指定筛选关系，默认使用所有关系
+    const allRelations = [...new Set(graphData.links.map(l => l.relation))]
+    const activeFilters = relationFilters.length > 0 ? relationFilters : allRelations
+    
     const nodes = []
     const links = []
-    const nodeIds = new Set() // 用于去重
+    const nodeIds = new Set()
+    const linkIds = new Set()
+    
+    // 辅助函数：获取节点的唯一标识
+    const getLinkId = (link) => `${link.source}-${link.target}-${link.relation}`
+    
+    // 辅助函数：递归扩展节点
+    const expandNode = (centerNodeId, currentDepth, maxDepthLimit) => {
+      if (currentDepth > maxDepthLimit) return
+      
+      // 查找与当前节点相关的关系（根据筛选条件）
+      const relatedLinks = graphData.links.filter(l => {
+        const isRelated = l.source === centerNodeId || l.target === centerNodeId
+        const isInFilter = activeFilters.includes(l.relation)
+        const isNotAdded = !linkIds.has(getLinkId(l))
+        return isRelated && isInFilter && isNotAdded
+      })
+      
+      for (const link of relatedLinks) {
+        // 添加关系
+        links.push(link)
+        linkIds.add(getLinkId(link))
+        
+        // 获取关联节点ID
+        const relatedNodeId = link.source === centerNodeId ? link.target : link.source
+        
+        // 如果节点还未添加，则查找并添加
+        if (!nodeIds.has(relatedNodeId)) {
+          const relatedNode = graphData.nodes.find(n => n.id === relatedNodeId)
+          if (relatedNode) {
+            nodes.push(relatedNode)
+            nodeIds.add(relatedNode.id)
+            
+            // 递归扩展（路径长度+1）
+            expandNode(relatedNodeId, currentDepth + 1, maxDepthLimit)
+          }
+        }
+      }
+    }
     
     if (entityId && entityType === 'citizen') {
       // 1. 查找中心人员节点
@@ -441,53 +484,40 @@ app.post('/api/v1/graph/query', async (req, res) => {
         nodes.push(personNode)
         nodeIds.add(personNode.id)
         
-        // 2. 查找与该人员相关的所有关系
-        const personLinks = graphData.links.filter(l => l.source === entityId || l.target === entityId)
+        // 2. 从中心节点开始扩展（支持路径长度为3的查询）
+        expandNode(entityId, 1, maxDepth)
         
-        for (const link of personLinks) {
-          // 添加关系
-          links.push(link)
-          
-          // 获取关联节点ID（不是当前人员的那个节点）
-          const relatedNodeId = link.source === entityId ? link.target : link.source
-          
-          // 如果节点还未添加，则查找并添加
-          if (!nodeIds.has(relatedNodeId)) {
-            const relatedNode = graphData.nodes.find(n => n.id === relatedNodeId)
-            if (relatedNode) {
-              nodes.push(relatedNode)
-              nodeIds.add(relatedNode.id)
-              
-              // 3. 对于案件节点，还需要查找关联的民警节点
-              if (relatedNode.type === 'case') {
-                // 查找与该案件相关的民警关系
-                const policeLinks = graphData.links.filter(l => 
-                  l.target === relatedNodeId && l.relation === '负责'
-                )
-                
-                for (const policeLink of policeLinks) {
-                  // 添加民警-案件关系
-                  if (!links.find(l => l.source === policeLink.source && l.target === policeLink.target)) {
-                    links.push(policeLink)
-                  }
-                  
-                  // 添加民警节点
-                  if (!nodeIds.has(policeLink.source)) {
-                    const policeNode = graphData.nodes.find(n => n.id === policeLink.source)
-                    if (policeNode) {
-                      nodes.push(policeNode)
-                      nodeIds.add(policeNode.id)
-                    }
-                  }
-                }
-              }
+        // 3. 统计各关系类型的数量
+        const relationStats = {}
+        links.forEach(link => {
+          relationStats[link.relation] = (relationStats[link.relation] || 0) + 1
+        })
+        
+        // 4. 构建关系筛选栏数据
+        const relationFiltersData = allRelations.map(relation => ({
+          type: relation,
+          count: relationStats[relation] || 0,
+          active: activeFilters.includes(relation)
+        }))
+        
+        return res.json({
+          code: 200,
+          message: 'success',
+          data: {
+            nodes,
+            links,
+            relationFilters: relationFiltersData,
+            centerNode: {
+              id: personNode.id,
+              name: personNode.label,
+              type: personNode.type
             }
           }
-        }
+        })
       }
     }
     
-    res.json({ code: 200, message: 'success', data: { nodes, links } })
+    res.json({ code: 404, message: '未找到指定的人员节点' })
   } catch (error) {
     console.error('图谱查询失败:', error)
     res.json({ code: 500, message: '图谱查询失败', detail: error.message })
