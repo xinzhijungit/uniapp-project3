@@ -1,22 +1,12 @@
 {
   "version": 2,
   "name": "xian-police-platform",
-  "framework": null,
   "buildCommand": "npm run vercel-build",
   "outputDirectory": "dist/build/h5",
-  "installCommand": "npm install",
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/server/api/index.js"
-    },
-    {
-      "source": "/assets/(.*)",
-      "destination": "/dist/build/h5/assets/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/dist/build/h5/index.html"
+      "destination": "/api/index.js"
     }
   ]
 }
