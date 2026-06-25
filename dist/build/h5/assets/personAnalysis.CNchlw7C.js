@@ -1,0 +1,1 @@
+import{p as r}from"./request.BIO8OASg.js";async function n(n){return r("/search/entity",n)}async function e(n){return r("/graph/query",n)}async function t(){return r("/graph/regenerate",{})}export{e as q,t as r,n as s};

@@ -1,0 +1,3048 @@
+{
+  "nodes": [
+    {
+      "id": "BJR20260500001",
+      "type": "citizen",
+      "label": "李明",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500001",
+        "name": "李明",
+        "id_card": "610103199001011234",
+        "phone": "13812345601",
+        "domicile": "碑林区友谊西路123号",
+        "address": "碑林区友谊西路123号",
+        "is_key_person": "否",
+        "plate_number": "陕A3F7B4",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500002",
+      "type": "citizen",
+      "label": "王丽",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500002",
+        "name": "王丽",
+        "id_card": "610113198506152345",
+        "phone": "13912345602",
+        "domicile": "雁塔区长安南路456号",
+        "address": "雁塔区长安南路456号",
+        "is_key_person": "否",
+        "plate_number": "陕A8K1E5",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500003",
+      "type": "citizen",
+      "label": "张磊",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500003",
+        "name": "张磊",
+        "id_card": "610112199203013456",
+        "phone": "13712345603",
+        "domicile": "未央区凤城五路789号",
+        "address": "未央区凤城五路789号",
+        "is_key_person": "否",
+        "plate_number": "陕A2M9C6",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500004",
+      "type": "citizen",
+      "label": "赵强",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500004",
+        "name": "赵强",
+        "id_card": "610104198803154567",
+        "phone": "13612345604",
+        "domicile": "莲湖区西关正街12号",
+        "address": "莲湖区西关正街12号",
+        "is_key_person": "否",
+        "plate_number": "陕U5H4A3",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500005",
+      "type": "citizen",
+      "label": "刘洋",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500005",
+        "name": "刘洋",
+        "id_card": "610111199508086789",
+        "phone": "13512345605",
+        "domicile": "灞桥区纺织城东街66号",
+        "address": "灞桥区纺织城东街66号",
+        "is_key_person": "否",
+        "plate_number": "陕A7D6G1",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500006",
+      "type": "citizen",
+      "label": "陈静",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500006",
+        "name": "陈静",
+        "id_card": "610116199104209876",
+        "phone": "13312345606",
+        "domicile": "长安区韦曲南街100号",
+        "address": "长安区韦曲南街100号",
+        "is_key_person": "否",
+        "plate_number": "陕A9R2L8",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500007",
+      "type": "citizen",
+      "label": "黄浩",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500007",
+        "name": "黄浩",
+        "id_card": "610113198706212345",
+        "phone": "13212345607",
+        "domicile": "雁塔区朱雀大街88号",
+        "address": "雁塔区朱雀大街88号",
+        "is_key_person": "是",
+        "plate_number": "陕U1W3N4",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500008",
+      "type": "citizen",
+      "label": "周华",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500008",
+        "name": "周华",
+        "id_card": "610103198102034567",
+        "phone": "13112345608",
+        "domicile": "碑林区南大街15号",
+        "address": "碑林区南大街15号",
+        "is_key_person": "是",
+        "plate_number": "陕A4T7P9",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500009",
+      "type": "citizen",
+      "label": "吴强",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500009",
+        "name": "吴强",
+        "id_card": "610104199312056789",
+        "phone": "13012345609",
+        "domicile": "莲湖区劳动路30号",
+        "address": "莲湖区劳动路30号",
+        "is_key_person": "否",
+        "plate_number": "陕A6J5V2",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500010",
+      "type": "citizen",
+      "label": "郑丽",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500010",
+        "name": "郑丽",
+        "id_card": "610112199507123456",
+        "phone": "12912345610",
+        "domicile": "未央区太华北路200号",
+        "address": "未央区太华北路200号",
+        "is_key_person": "是",
+        "plate_number": "陕U0B8C7",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500011",
+      "type": "citizen",
+      "label": "冯军",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500011",
+        "name": "冯军",
+        "id_card": "610111198909091234",
+        "phone": "12812345611",
+        "domicile": "灞桥区纺一路77号",
+        "address": "灞桥区纺一路77号",
+        "is_key_person": "否",
+        "plate_number": "陕A2Z9F4",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500012",
+      "type": "citizen",
+      "label": "蒋涛",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500012",
+        "name": "蒋涛",
+        "id_card": "610116197802124567",
+        "phone": "12712345612",
+        "domicile": "长安区西长安街50号",
+        "address": "长安区西长安街50号",
+        "is_key_person": "否",
+        "plate_number": "陕A5X1M3",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500013",
+      "type": "citizen",
+      "label": "何娟",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500013",
+        "name": "何娟",
+        "id_card": "610113200105013456",
+        "phone": "12612345613",
+        "domicile": "雁塔区小寨东路100号",
+        "address": "雁塔区小寨东路100号",
+        "is_key_person": "否",
+        "plate_number": "陕U7L2K6",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500014",
+      "type": "citizen",
+      "label": "马玲",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500014",
+        "name": "马玲",
+        "id_card": "610103199812206789",
+        "phone": "12512345614",
+        "domicile": "碑林区东大街200号",
+        "address": "碑林区东大街200号",
+        "is_key_person": "否",
+        "plate_number": "陕A8Q4H9",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500015",
+      "type": "citizen",
+      "label": "罗强",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500015",
+        "name": "罗强",
+        "id_card": "610104199006153456",
+        "phone": "12412345615",
+        "domicile": "莲湖区大庆路88号",
+        "address": "莲湖区大庆路88号",
+        "is_key_person": "否",
+        "plate_number": "陕A3C6J1",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500016",
+      "type": "citizen",
+      "label": "宋丽",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500016",
+        "name": "宋丽",
+        "id_card": "610112199108086789",
+        "phone": "12312345616",
+        "domicile": "未央区凤城二路60号",
+        "address": "未央区凤城二路60号",
+        "is_key_person": "否",
+        "plate_number": "陕U9Y5R2",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500017",
+      "type": "citizen",
+      "label": "唐伟",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500017",
+        "name": "唐伟",
+        "id_card": "610111199410203456",
+        "phone": "12212345617",
+        "domicile": "灞桥区十里铺街道",
+        "address": "灞桥区十里铺街道",
+        "is_key_person": "否",
+        "plate_number": "陕A1N7B4",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500018",
+      "type": "citizen",
+      "label": "曹静",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500018",
+        "name": "曹静",
+        "id_card": "610116200306051234",
+        "phone": "12112345618",
+        "domicile": "长安区青年北街30号",
+        "address": "长安区青年北街30号",
+        "is_key_person": "否",
+        "plate_number": "陕A4P8T3",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500019",
+      "type": "citizen",
+      "label": "邓华",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500019",
+        "name": "邓华",
+        "id_card": "610113195005013456",
+        "phone": "12012345619",
+        "domicile": "雁塔区翠华路107号",
+        "address": "雁塔区翠华路107号",
+        "is_key_person": "否",
+        "plate_number": "陕U6D2X9",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500020",
+      "type": "citizen",
+      "label": "彭娟",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500020",
+        "name": "彭娟",
+        "id_card": "610103198705083456",
+        "phone": "11912345620",
+        "domicile": "碑林区长安北路50号",
+        "address": "碑林区长安北路50号",
+        "is_key_person": "否",
+        "plate_number": "陕A0F5K7",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500021",
+      "type": "citizen",
+      "label": "秦军",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500021",
+        "name": "秦军",
+        "id_card": "610104199203058901",
+        "phone": "11812345621",
+        "domicile": "莲湖区西华门大街20号",
+        "address": "莲湖区西华门大街20号",
+        "is_key_person": "否",
+        "plate_number": "陕A2G9M1",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500022",
+      "type": "citizen",
+      "label": "沈涛",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500022",
+        "name": "沈涛",
+        "id_card": "610111199604122345",
+        "phone": "11712345622",
+        "domicile": "灞桥区浐灞生态区",
+        "address": "灞桥区浐灞生态区",
+        "is_key_person": "否",
+        "plate_number": "陕A7H3L8",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500023",
+      "type": "citizen",
+      "label": "杨华",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500023",
+        "name": "杨华",
+        "id_card": "610116198510023456",
+        "phone": "11612345623",
+        "domicile": "长安区文苑南路",
+        "address": "长安区文苑南路",
+        "is_key_person": "否",
+        "plate_number": "陕U5R1Q4",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500024",
+      "type": "citizen",
+      "label": "韩丽",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500024",
+        "name": "韩丽",
+        "id_card": "610113197612053456",
+        "phone": "11512345624",
+        "domicile": "雁塔区电子正街88号",
+        "address": "雁塔区电子正街88号",
+        "is_key_person": "否",
+        "plate_number": "陕A8T6N2",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500025",
+      "type": "citizen",
+      "label": "余浩",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500025",
+        "name": "余浩",
+        "id_card": "610103198303216789",
+        "phone": "11412345625",
+        "domicile": "碑林区太白北路10号",
+        "address": "碑林区太白北路10号",
+        "is_key_person": "否",
+        "plate_number": "陕A1Z4C7",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500026",
+      "type": "citizen",
+      "label": "方芳",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500026",
+        "name": "方芳",
+        "id_card": "610104199409093456",
+        "phone": "11312345626",
+        "domicile": "莲湖区北大街118号",
+        "address": "莲湖区北大街118号",
+        "is_key_person": "否",
+        "plate_number": "陕U3B9P5",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500027",
+      "type": "citizen",
+      "label": "袁明",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500027",
+        "name": "袁明",
+        "id_card": "610112197805201234",
+        "phone": "11212345627",
+        "domicile": "未央区凤城八路100号",
+        "address": "未央区凤城八路100号",
+        "is_key_person": "否",
+        "plate_number": "陕A6K2V8",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500028",
+      "type": "citizen",
+      "label": "许静",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500028",
+        "name": "许静",
+        "id_card": "610113199708074567",
+        "phone": "11112345628",
+        "domicile": "雁塔区科技路50号",
+        "address": "雁塔区科技路50号",
+        "is_key_person": "否",
+        "plate_number": "陕A9W7D3",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500029",
+      "type": "citizen",
+      "label": "丁磊",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500029",
+        "name": "丁磊",
+        "id_card": "610116199105163456",
+        "phone": "11012345629",
+        "domicile": "长安区郭杜东街15号",
+        "address": "长安区郭杜东街15号",
+        "is_key_person": "否",
+        "plate_number": "陕U4L1F6",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "BJR20260500030",
+      "type": "citizen",
+      "label": "苏伟",
+      "color": "#2196F3",
+      "properties": {
+        "id": "BJR20260500030",
+        "name": "苏伟",
+        "id_card": "610111198901021234",
+        "phone": "10912345630",
+        "domicile": "灞桥区矿山路88号",
+        "address": "灞桥区矿山路88号",
+        "is_key_person": "否",
+        "plate_number": "陕A0P5Y2",
+        "data_source": "FKD_BJR"
+      }
+    },
+    {
+      "id": "case_JJ20260500001",
+      "type": "case",
+      "label": "JJ20260500001",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500001",
+        "content": "电动车被盗，价值约3000元",
+        "time": "2026/5/3 10:30:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500002",
+      "type": "case",
+      "label": "JJ20260500002",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500002",
+        "content": "接到冒充公检法电话诈骗，被骗转账5万元",
+        "time": "2026/5/5 14:20:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500003",
+      "type": "case",
+      "label": "JJ20260500003",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500003",
+        "content": "网络刷单被骗3万元",
+        "time": "2026/5/12 09:45:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500004",
+      "type": "case",
+      "label": "JJ20260500004",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500004",
+        "content": "两辆小轿车追尾，无人员受伤",
+        "time": "2026/5/1 08:15:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500005",
+      "type": "case",
+      "label": "JJ20260500005",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500005",
+        "content": "电动车与行人碰撞，行人轻伤",
+        "time": "2026/5/8 17:30:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500006",
+      "type": "case",
+      "label": "JJ20260500006",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500006",
+        "content": "三车连环相撞，有人员被困",
+        "time": "2026/5/20 12:00:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500007",
+      "type": "case",
+      "label": "JJ20260500007",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500007",
+        "content": "多人聚集赌博，赌资较大",
+        "time": "2026/5/4 22:10:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500008",
+      "type": "case",
+      "label": "JJ20260500008",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500008",
+        "content": "棋牌室内赌博",
+        "time": "2026/5/15 21:30:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500009",
+      "type": "case",
+      "label": "JJ20260500009",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500009",
+        "content": "网络赌博，手机下注",
+        "time": "2026/5/25 20:00:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500010",
+      "type": "case",
+      "label": "JJ20260500010",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500010",
+        "content": "疑似吸毒，精神恍惚",
+        "time": "2026/5/7 15:00:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500011",
+      "type": "case",
+      "label": "JJ20260500011",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500011",
+        "content": "发现疑似毒品交易",
+        "time": "2026/5/18 16:20:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500012",
+      "type": "case",
+      "label": "JJ20260500012",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500012",
+        "content": "种植罂粟原植物",
+        "time": "2026/5/28 11:10:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500013",
+      "type": "case",
+      "label": "JJ20260500013",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500013",
+        "content": "被陌生男子猥亵",
+        "time": "2026/5/6 19:45:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500014",
+      "type": "case",
+      "label": "JJ20260500014",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500014",
+        "content": "被一男子猥亵",
+        "time": "2026/5/19 20:30:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500015",
+      "type": "case",
+      "label": "JJ20260500015",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500015",
+        "content": "以找工作为由被骗2万元",
+        "time": "2026/5/2 11:00:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500016",
+      "type": "case",
+      "label": "JJ20260500016",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500016",
+        "content": "假冒客服退款诈骗，损失1.5万",
+        "time": "2026/5/22 13:15:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500017",
+      "type": "case",
+      "label": "JJ20260500017",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500017",
+        "content": "持刀抢劫手机一部",
+        "time": "2026/5/10 23:05:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500018",
+      "type": "case",
+      "label": "JJ20260500018",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500018",
+        "content": "背包被抢夺，内有现金2000元",
+        "time": "2026/5/11 22:40:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500019",
+      "type": "case",
+      "label": "JJ20260500019",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500019",
+        "content": "78岁老人走失，患有阿尔茨海默病",
+        "time": "2026/5/9 08:30:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500020",
+      "type": "case",
+      "label": "JJ20260500020",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500020",
+        "content": "5岁男孩走失，身穿红色上衣",
+        "time": "2026/5/13 16:00:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500021",
+      "type": "case",
+      "label": "JJ20260500021",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500021",
+        "content": "有人晕倒，急需急救",
+        "time": "2026/5/14 09:30:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500022",
+      "type": "case",
+      "label": "JJ20260500022",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500022",
+        "content": "有人溺水，正在挣扎",
+        "time": "2026/5/16 14:45:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500023",
+      "type": "case",
+      "label": "JJ20260500023",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500023",
+        "content": "有人从教学楼坠落",
+        "time": "2026/5/17 07:20:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500024",
+      "type": "case",
+      "label": "JJ20260500024",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500024",
+        "content": "住宅起火，浓烟滚滚",
+        "time": "2026/5/21 18:10:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500025",
+      "type": "case",
+      "label": "JJ20260500025",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500025",
+        "content": "闻到浓烈燃气味，疑似泄漏",
+        "time": "2026/5/23 11:50:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500026",
+      "type": "case",
+      "label": "JJ20260500026",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500026",
+        "content": "电梯故障多人被困",
+        "time": "2026/5/24 19:35:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500027",
+      "type": "case",
+      "label": "JJ20260500027",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500027",
+        "content": "拖欠农民工工资，聚集讨薪",
+        "time": "2026/5/26 10:00:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500028",
+      "type": "case",
+      "label": "JJ20260500028",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500028",
+        "content": "消费纠纷，顾客与店家冲突",
+        "time": "2026/5/27 12:30:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500029",
+      "type": "case",
+      "label": "JJ20260500029",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500029",
+        "content": "医疗纠纷，家属围堵医院",
+        "time": "2026/5/29 15:00:00"
+      }
+    },
+    {
+      "id": "case_JJ20260500030",
+      "type": "case",
+      "label": "JJ20260500030",
+      "color": "#F44336",
+      "properties": {
+        "case_number": "JJ20260500030",
+        "content": "物业与业主纠纷，堵门",
+        "time": "2026/5/30 09:00:00"
+      }
+    },
+    {
+      "id": "police_J001",
+      "type": "police",
+      "label": "张伟",
+      "color": "#4CAF50",
+      "properties": {
+        "police_id": "J001",
+        "name": "张伟",
+        "role": "接警民警",
+        "status": "在岗状态",
+        "department": "西安市公安局指挥中心",
+        "phone": "13800000001"
+      }
+    },
+    {
+      "id": "police_J002",
+      "type": "police",
+      "label": "王芳",
+      "color": "#4CAF50",
+      "properties": {
+        "police_id": "J002",
+        "name": "王芳",
+        "role": "接警民警",
+        "status": "在岗状态",
+        "department": "西安市公安局指挥中心",
+        "phone": "13800000002"
+      }
+    },
+    {
+      "id": "police_MJ001",
+      "type": "police",
+      "label": "张强",
+      "color": "#4CAF50",
+      "properties": {
+        "police_id": "MJ001",
+        "name": "张强",
+        "role": "处警民警",
+        "status": "在岗状态",
+        "department": "西安市公安局碑林分局南院门派出所",
+        "phone": "13900000001"
+      }
+    },
+    {
+      "id": "police_MJ002",
+      "type": "police",
+      "label": "李涛",
+      "color": "#4CAF50",
+      "properties": {
+        "police_id": "MJ002",
+        "name": "李涛",
+        "role": "处警民警",
+        "status": "外勤状态",
+        "department": "西安市公安局莲湖分局西关派出所",
+        "phone": "13900000002"
+      }
+    },
+    {
+      "id": "police_MJ003",
+      "type": "police",
+      "label": "王军",
+      "color": "#4CAF50",
+      "properties": {
+        "police_id": "MJ003",
+        "name": "王军",
+        "role": "处警民警",
+        "status": "在岗状态",
+        "department": "西安市公安局雁塔分局小寨路派出所",
+        "phone": "13900000003"
+      }
+    },
+    {
+      "id": "police_MJ004",
+      "type": "police",
+      "label": "赵刚",
+      "color": "#4CAF50",
+      "properties": {
+        "police_id": "MJ004",
+        "name": "赵刚",
+        "role": "处警民警",
+        "status": "休假状态",
+        "department": "西安市公安局未央分局徐家湾派出所",
+        "phone": "13900000004"
+      }
+    },
+    {
+      "id": "police_MJ005",
+      "type": "police",
+      "label": "刘磊",
+      "color": "#4CAF50",
+      "properties": {
+        "police_id": "MJ005",
+        "name": "刘磊",
+        "role": "处警民警",
+        "status": "在岗状态",
+        "department": "西安市公安局灞桥分局纺织城派出所",
+        "phone": "13900000005"
+      }
+    },
+    {
+      "id": "police_MJ006",
+      "type": "police",
+      "label": "陈明",
+      "color": "#4CAF50",
+      "properties": {
+        "police_id": "MJ006",
+        "name": "陈明",
+        "role": "处警民警",
+        "status": "在岗状态",
+        "department": "西安市公安局长安分局韦曲派出所",
+        "phone": "13900000006"
+      }
+    },
+    {
+      "id": "police_MJ007",
+      "type": "police",
+      "label": "孙辉",
+      "color": "#4CAF50",
+      "properties": {
+        "police_id": "MJ007",
+        "name": "孙辉",
+        "role": "盯办民警",
+        "status": "在岗状态",
+        "department": "西安市公安局指挥中心",
+        "phone": "13800000003"
+      }
+    },
+    {
+      "id": "police_MJ008",
+      "type": "police",
+      "label": "周瑜",
+      "color": "#4CAF50",
+      "properties": {
+        "police_id": "MJ008",
+        "name": "周瑜",
+        "role": "指挥调度民警",
+        "status": "在岗状态",
+        "department": "西安市公安局指挥中心",
+        "phone": "13800000004"
+      }
+    },
+    {
+      "id": "household_H006",
+      "type": "household",
+      "label": "6101032005006",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H006",
+        "household_number": "6101032005006",
+        "address": "西安市碑林区友谊西路15号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610103198102034567",
+      "type": "citizen",
+      "label": "周华",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610103198102034567",
+        "name": "周华",
+        "id_card": "610103198102034567",
+        "phone": "-",
+        "domicile": "西安市碑林区友谊西路15号",
+        "address": "西安市碑林区友谊西路15号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H017",
+      "type": "household",
+      "label": "6101032010017",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H017",
+        "household_number": "6101032010017",
+        "address": "西安市碑林区含光路66号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610103198303216789",
+      "type": "citizen",
+      "label": "余浩",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610103198303216789",
+        "name": "余浩",
+        "id_card": "610103198303216789",
+        "phone": "-",
+        "domicile": "西安市碑林区含光路66号",
+        "address": "西安市碑林区含光路66号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610103198705083456",
+      "type": "citizen",
+      "label": "彭娟",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610103198705083456",
+        "name": "彭娟",
+        "id_card": "610103198705083456",
+        "phone": "-",
+        "domicile": "西安市碑林区友谊西路15号",
+        "address": "西安市碑林区友谊西路15号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H001",
+      "type": "household",
+      "label": "6101012023001",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H001",
+        "household_number": "6101012023001",
+        "address": "西安市雁塔区科技二路77号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610103199001011234",
+      "type": "citizen",
+      "label": "李明",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610103199001011234",
+        "name": "李明",
+        "id_card": "610103199001011234",
+        "phone": "-",
+        "domicile": "西安市雁塔区科技二路77号",
+        "address": "西安市雁塔区科技二路77号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H010",
+      "type": "household",
+      "label": "6101032020010",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H010",
+        "household_number": "6101032020010",
+        "address": "西安市碑林区南二环21号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610103199812206789",
+      "type": "citizen",
+      "label": "马玲",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610103199812206789",
+        "name": "马玲",
+        "id_card": "610103199812206789",
+        "phone": "-",
+        "domicile": "西安市碑林区南二环21号",
+        "address": "西安市碑林区南二环21号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610103201011016666",
+      "type": "citizen",
+      "label": "周婷",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610103201011016666",
+        "name": "周婷",
+        "id_card": "610103201011016666",
+        "phone": "-",
+        "domicile": "西安市碑林区友谊西路15号",
+        "address": "西安市碑林区友谊西路15号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610103201505200003",
+      "type": "citizen",
+      "label": "余思",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610103201505200003",
+        "name": "余思",
+        "id_card": "610103201505200003",
+        "phone": "-",
+        "domicile": "西安市碑林区含光路66号",
+        "address": "西安市碑林区含光路66号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610103201507011111",
+      "type": "citizen",
+      "label": "李小明",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610103201507011111",
+        "name": "李小明",
+        "id_card": "610103201507011111",
+        "phone": "-",
+        "domicile": "西安市雁塔区科技二路77号",
+        "address": "西安市雁塔区科技二路77号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H003",
+      "type": "household",
+      "label": "6101042012003",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H003",
+        "household_number": "6101042012003",
+        "address": "西安市莲湖区大庆路129号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610104198803154567",
+      "type": "citizen",
+      "label": "赵强",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610104198803154567",
+        "name": "赵强",
+        "id_card": "610104198803154567",
+        "phone": "-",
+        "domicile": "西安市莲湖区大庆路129号",
+        "address": "西安市莲湖区大庆路129号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H011",
+      "type": "household",
+      "label": "6101042015011",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H011",
+        "household_number": "6101042015011",
+        "address": "西安市莲湖区唐延路35号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610104199006153456",
+      "type": "citizen",
+      "label": "罗强",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610104199006153456",
+        "name": "罗强",
+        "id_card": "610104199006153456",
+        "phone": "-",
+        "domicile": "西安市莲湖区唐延路35号",
+        "address": "西安市莲湖区唐延路35号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H015",
+      "type": "household",
+      "label": "6101042016015",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H015",
+        "household_number": "6101042016015",
+        "address": "西安市莲湖区北大街118号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610104199203058901",
+      "type": "citizen",
+      "label": "秦军",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610104199203058901",
+        "name": "秦军",
+        "id_card": "610104199203058901",
+        "phone": "-",
+        "domicile": "西安市莲湖区北大街118号",
+        "address": "西安市莲湖区北大街118号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H005",
+      "type": "household",
+      "label": "6101042017005",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H005",
+        "household_number": "6101042017005",
+        "address": "西安市莲湖区西稍门50号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610104199312056789",
+      "type": "citizen",
+      "label": "吴强",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610104199312056789",
+        "name": "吴强",
+        "id_card": "610104199312056789",
+        "phone": "-",
+        "domicile": "西安市莲湖区西稍门50号",
+        "address": "西安市莲湖区西稍门50号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610104199409093456",
+      "type": "citizen",
+      "label": "方芳",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610104199409093456",
+        "name": "方芳",
+        "id_card": "610104199409093456",
+        "phone": "-",
+        "domicile": "西安市碑林区含光路66号",
+        "address": "西安市碑林区含光路66号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610104201706064444",
+      "type": "citizen",
+      "label": "赵瑞",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610104201706064444",
+        "name": "赵瑞",
+        "id_card": "610104201706064444",
+        "phone": "-",
+        "domicile": "西安市莲湖区大庆路129号",
+        "address": "西安市莲湖区大庆路129号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610104201712250001",
+      "type": "citizen",
+      "label": "罗一舟",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610104201712250001",
+        "name": "罗一舟",
+        "id_card": "610104201712250001",
+        "phone": "-",
+        "domicile": "西安市莲湖区唐延路35号",
+        "address": "西安市莲湖区唐延路35号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610104202003150002",
+      "type": "citizen",
+      "label": "秦朗",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610104202003150002",
+        "name": "秦朗",
+        "id_card": "610104202003150002",
+        "phone": "-",
+        "domicile": "西安市莲湖区北大街118号",
+        "address": "西安市莲湖区北大街118号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610104202007076666",
+      "type": "citizen",
+      "label": "吴哲",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610104202007076666",
+        "name": "吴哲",
+        "id_card": "610104202007076666",
+        "phone": "-",
+        "domicile": "西安市莲湖区西稍门50号",
+        "address": "西安市莲湖区西稍门50号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H019",
+      "type": "household",
+      "label": "6101112015019",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H019",
+        "household_number": "6101112015019",
+        "address": "西安市灞桥区华清路88号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610111198901021234",
+      "type": "citizen",
+      "label": "苏伟",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610111198901021234",
+        "name": "苏伟",
+        "id_card": "610111198901021234",
+        "phone": "-",
+        "domicile": "西安市灞桥区华清路88号",
+        "address": "西安市灞桥区华清路88号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H007",
+      "type": "household",
+      "label": "6101112002007",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H007",
+        "household_number": "6101112002007",
+        "address": "西安市灞桥区纺渭路100号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610111198909091234",
+      "type": "citizen",
+      "label": "冯军",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610111198909091234",
+        "name": "冯军",
+        "id_card": "610111198909091234",
+        "phone": "-",
+        "domicile": "西安市灞桥区纺渭路100号",
+        "address": "西安市灞桥区纺渭路100号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H012",
+      "type": "household",
+      "label": "6101112018012",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H012",
+        "household_number": "6101112018012",
+        "address": "西安市灞桥区纺东街5号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610111199410203456",
+      "type": "citizen",
+      "label": "唐伟",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610111199410203456",
+        "name": "唐伟",
+        "id_card": "610111199410203456",
+        "phone": "-",
+        "domicile": "西安市灞桥区纺东街5号",
+        "address": "西安市灞桥区纺东街5号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H002",
+      "type": "household",
+      "label": "6101122023002",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H002",
+        "household_number": "6101122023002",
+        "address": "西安市未央区凤城八路88号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610111199508086789",
+      "type": "citizen",
+      "label": "刘洋",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610111199508086789",
+        "name": "刘洋",
+        "id_card": "610111199508086789",
+        "phone": "-",
+        "domicile": "西安市未央区凤城八路88号",
+        "address": "西安市未央区凤城八路88号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H016",
+      "type": "household",
+      "label": "6101112019016",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H016",
+        "household_number": "6101112019016",
+        "address": "西安市灞桥区纺北路33号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610111199604122345",
+      "type": "citizen",
+      "label": "沈涛",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610111199604122345",
+        "name": "沈涛",
+        "id_card": "610111199604122345",
+        "phone": "-",
+        "domicile": "西安市灞桥区纺北路33号",
+        "address": "西安市灞桥区纺北路33号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610111200503017777",
+      "type": "citizen",
+      "label": "冯小军",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610111200503017777",
+        "name": "冯小军",
+        "id_card": "610111200503017777",
+        "phone": "-",
+        "domicile": "西安市灞桥区纺渭路100号",
+        "address": "西安市灞桥区纺渭路100号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610111200808088888",
+      "type": "citizen",
+      "label": "冯雅",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610111200808088888",
+        "name": "冯雅",
+        "id_card": "610111200808088888",
+        "phone": "-",
+        "domicile": "西安市灞桥区纺渭路100号",
+        "address": "西安市灞桥区纺渭路100号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H018",
+      "type": "household",
+      "label": "6101122001018",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H018",
+        "household_number": "6101122001018",
+        "address": "西安市未央区龙首北路99号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610112197805201234",
+      "type": "citizen",
+      "label": "袁明",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610112197805201234",
+        "name": "袁明",
+        "id_card": "610112197805201234",
+        "phone": "-",
+        "domicile": "西安市未央区龙首北路99号",
+        "address": "西安市未央区龙首北路99号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610112199108086789",
+      "type": "citizen",
+      "label": "宋丽",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610112199108086789",
+        "name": "宋丽",
+        "id_card": "610112199108086789",
+        "phone": "-",
+        "domicile": "西安市莲湖区西稍门50号",
+        "address": "西安市莲湖区西稍门50号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610112199203013456",
+      "type": "citizen",
+      "label": "张磊",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610112199203013456",
+        "name": "张磊",
+        "id_card": "610112199203013456",
+        "phone": "-",
+        "domicile": "西安市未央区凤城八路88号",
+        "address": "西安市未央区凤城八路88号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H004",
+      "type": "household",
+      "label": "6101132013004",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H004",
+        "household_number": "6101132013004",
+        "address": "西安市雁塔区丈八东路10号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610112199507123456",
+      "type": "citizen",
+      "label": "郑丽",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610112199507123456",
+        "name": "郑丽",
+        "id_card": "610112199507123456",
+        "phone": "-",
+        "domicile": "西安市雁塔区丈八东路10号",
+        "address": "西安市雁塔区丈八东路10号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610112201209150004",
+      "type": "citizen",
+      "label": "袁丁",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610112201209150004",
+        "name": "袁丁",
+        "id_card": "610112201209150004",
+        "phone": "-",
+        "domicile": "西安市未央区龙首北路99号",
+        "address": "西安市未央区龙首北路99号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610112201901023333",
+      "type": "citizen",
+      "label": "张欣",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610112201901023333",
+        "name": "张欣",
+        "id_card": "610112201901023333",
+        "phone": "-",
+        "domicile": "西安市未央区凤城八路88号",
+        "address": "西安市未央区凤城八路88号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H014",
+      "type": "household",
+      "label": "6101131990014",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H014",
+        "household_number": "6101131990014",
+        "address": "西安市雁塔区电子正街88号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610113195005013456",
+      "type": "citizen",
+      "label": "邓华",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610113195005013456",
+        "name": "邓华",
+        "id_card": "610113195005013456",
+        "phone": "-",
+        "domicile": "西安市雁塔区电子正街88号",
+        "address": "西安市雁塔区电子正街88号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610113197612053456",
+      "type": "citizen",
+      "label": "韩丽",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610113197612053456",
+        "name": "韩丽",
+        "id_card": "610113197612053456",
+        "phone": "-",
+        "domicile": "西安市灞桥区纺渭路100号",
+        "address": "西安市灞桥区纺渭路100号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610113198506152345",
+      "type": "citizen",
+      "label": "王丽",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610113198506152345",
+        "name": "王丽",
+        "id_card": "610113198506152345",
+        "phone": "-",
+        "domicile": "西安市雁塔区科技二路77号",
+        "address": "西安市雁塔区科技二路77号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610113198706212345",
+      "type": "citizen",
+      "label": "黄浩",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610113198706212345",
+        "name": "黄浩",
+        "id_card": "610113198706212345",
+        "phone": "-",
+        "domicile": "西安市雁塔区丈八东路10号",
+        "address": "西安市雁塔区丈八东路10号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610113199708074567",
+      "type": "citizen",
+      "label": "许静",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610113199708074567",
+        "name": "许静",
+        "id_card": "610113199708074567",
+        "phone": "-",
+        "domicile": "西安市莲湖区北大街118号",
+        "address": "西安市莲湖区北大街118号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H009",
+      "type": "household",
+      "label": "6101132021009",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H009",
+        "household_number": "6101132021009",
+        "address": "西安市雁塔区科技路1号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610113200105013456",
+      "type": "citizen",
+      "label": "何娟",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610113200105013456",
+        "name": "何娟",
+        "id_card": "610113200105013456",
+        "phone": "-",
+        "domicile": "西安市雁塔区科技路1号",
+        "address": "西安市雁塔区科技路1号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610113201806085555",
+      "type": "citizen",
+      "label": "黄小琪",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610113201806085555",
+        "name": "黄小琪",
+        "id_card": "610113201806085555",
+        "phone": "-",
+        "domicile": "西安市雁塔区丈八东路10号",
+        "address": "西安市雁塔区丈八东路10号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H008",
+      "type": "household",
+      "label": "6101162003008",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H008",
+        "household_number": "6101162003008",
+        "address": "西安市长安区韦曲北街22号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610116197802124567",
+      "type": "citizen",
+      "label": "蒋涛",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610116197802124567",
+        "name": "蒋涛",
+        "id_card": "610116197802124567",
+        "phone": "-",
+        "domicile": "西安市长安区韦曲北街22号",
+        "address": "西安市长安区韦曲北街22号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610116198001019999",
+      "type": "citizen",
+      "label": "李秀英",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610116198001019999",
+        "name": "李秀英",
+        "id_card": "610116198001019999",
+        "phone": "-",
+        "domicile": "西安市长安区韦曲北街22号",
+        "address": "西安市长安区韦曲北街22号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610116198510023456",
+      "type": "citizen",
+      "label": "杨华",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610116198510023456",
+        "name": "杨华",
+        "id_card": "610116198510023456",
+        "phone": "-",
+        "domicile": "西安市莲湖区唐延路35号",
+        "address": "西安市莲湖区唐延路35号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610116199104209876",
+      "type": "citizen",
+      "label": "陈静",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610116199104209876",
+        "name": "陈静",
+        "id_card": "610116199104209876",
+        "phone": "-",
+        "domicile": "西安市莲湖区大庆路129号",
+        "address": "西安市莲湖区大庆路129号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610116199105163456",
+      "type": "citizen",
+      "label": "丁磊",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610116199105163456",
+        "name": "丁磊",
+        "id_card": "610116199105163456",
+        "phone": "-",
+        "domicile": "西安市未央区龙首北路99号",
+        "address": "西安市未央区龙首北路99号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "household_H013",
+      "type": "household",
+      "label": "6101162022013",
+      "color": "#FF9800",
+      "properties": {
+        "household_id": "H013",
+        "household_number": "6101162022013",
+        "address": "西安市长安区滦镇街办2号",
+        "household_type": "家庭户口"
+      }
+    },
+    {
+      "id": "citizen_610116200306051234",
+      "type": "citizen",
+      "label": "曹静",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610116200306051234",
+        "name": "曹静",
+        "id_card": "610116200306051234",
+        "phone": "-",
+        "domicile": "西安市长安区滦镇街办2号",
+        "address": "西安市长安区滦镇街办2号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "citizen_610116200503151111",
+      "type": "citizen",
+      "label": "蒋文",
+      "color": "#2196F3",
+      "properties": {
+        "id": "citizen_610116200503151111",
+        "name": "蒋文",
+        "id_card": "610116200503151111",
+        "phone": "-",
+        "domicile": "西安市长安区韦曲北街22号",
+        "address": "西安市长安区韦曲北街22号",
+        "is_key_person": "否",
+        "plate_number": "-",
+        "data_source": "person_household"
+      }
+    },
+    {
+      "id": "criminal_1",
+      "type": "criminal",
+      "label": "职务侵占罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 1,
+        "name": "周华",
+        "crime_type": "职务侵占罪",
+        "crime_detail": "利用担任华润万家超市个体商户（承租柜台）之便，私自截留营业款12.8万元，用于个人赌博。",
+        "prison_status": "已服刑",
+        "sentence_date": "2023/9/20 00:00:00",
+        "sentence_months": 14
+      }
+    },
+    {
+      "id": "criminal_2",
+      "type": "criminal",
+      "label": "串通投标罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 2,
+        "name": "余浩",
+        "crime_type": "串通投标罪",
+        "crime_detail": "作为中建三局项目经理，在招标前向三家投标公司泄露底价，收受好处费35万元。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/1/10 00:00:00",
+        "sentence_months": 18
+      }
+    },
+    {
+      "id": "criminal_3",
+      "type": "criminal",
+      "label": "诈骗罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 3,
+        "name": "彭娟",
+        "crime_type": "诈骗罪",
+        "crime_detail": "在国美电器担任销售员期间，虚构“内部优惠套餐”骗取顾客预付款共计8.3万元后失联，后被抓获。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/3/5 00:00:00",
+        "sentence_months": 10
+      }
+    },
+    {
+      "id": "criminal_4",
+      "type": "criminal",
+      "label": "非法获取计算机信息系统数据罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 4,
+        "name": "李明",
+        "crime_type": "非法获取计算机信息系统数据罪",
+        "crime_detail": "在西安华为技术有限公司任软件工程师时，利用爬虫窃取公司研发代码并出售给第三方，获利22万元。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/6/18 00:00:00",
+        "sentence_months": 20
+      }
+    },
+    {
+      "id": "criminal_5",
+      "type": "criminal",
+      "label": "帮助信息网络犯罪活动罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 5,
+        "name": "马玲",
+        "crime_type": "帮助信息网络犯罪活动罪",
+        "crime_detail": "在唯品会任新媒体运营期间，将公司客户手机号以每条0.5元出售给境外诈骗团伙，涉及信息2万余条。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/5/8 00:00:00",
+        "sentence_months": 8
+      }
+    },
+    {
+      "id": "criminal_6",
+      "type": "criminal",
+      "label": "交通肇事罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 6,
+        "name": "赵强",
+        "crime_type": "交通肇事罪",
+        "crime_detail": "陕汽集团货车司机，疲劳驾驶导致追尾，致1人死亡、2人重伤，事后逃逸但次日自首。",
+        "prison_status": "已服刑",
+        "sentence_date": "2023/12/1 00:00:00",
+        "sentence_months": 24
+      }
+    },
+    {
+      "id": "criminal_7",
+      "type": "criminal",
+      "label": "伪造证据罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 7,
+        "name": "罗强",
+        "crime_type": "伪造证据罪",
+        "crime_detail": "大成律所律师，为帮助委托人逃避债务，伪造借条和银行流水，妨害司法秩序。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/2/14 00:00:00",
+        "sentence_months": 12
+      }
+    },
+    {
+      "id": "criminal_8",
+      "type": "criminal",
+      "label": "贪污受贿罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 8,
+        "name": "秦军",
+        "crime_type": "贪污受贿罪",
+        "crime_detail": "莲湖区政府公务员，利用审批职权收受企业贿赂共计147万元，案发前潜逃。",
+        "prison_status": "通缉",
+        "sentence_date": "-",
+        "sentence_months": "-"
+      }
+    },
+    {
+      "id": "criminal_9",
+      "type": "criminal",
+      "label": "开设赌场罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 9,
+        "name": "吴强",
+        "crime_type": "开设赌场罪",
+        "crime_detail": "阿里巴巴程序员，私下开发并运营网络赌博平台，涉案资金流水达3000万元，获知被查后潜逃。",
+        "prison_status": "通缉",
+        "sentence_date": "-",
+        "sentence_months": "-"
+      }
+    },
+    {
+      "id": "criminal_10",
+      "type": "criminal",
+      "label": "挪用资金罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 10,
+        "name": "方芳",
+        "crime_type": "挪用资金罪",
+        "crime_detail": "中兴通讯行政专员，利用保管公章的便利，私自将公司对公账户资金65万元转入个人理财账户，案发前退还40万元。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/1/20 00:00:00",
+        "sentence_months": 15
+      }
+    },
+    {
+      "id": "criminal_11",
+      "type": "criminal",
+      "label": "侵犯商业秘密罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 11,
+        "name": "苏伟",
+        "crime_type": "侵犯商业秘密罪",
+        "crime_detail": "腾讯云产品经理，跳槽前下载公司核心算法模型并带至新公司，造成原公司损失约200万元。",
+        "prison_status": "已服刑",
+        "sentence_date": "2023/11/15 00:00:00",
+        "sentence_months": 16
+      }
+    },
+    {
+      "id": "criminal_12",
+      "type": "criminal",
+      "label": "抢劫罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 12,
+        "name": "冯军",
+        "crime_type": "抢劫罪",
+        "crime_detail": "出租车司机，夜间载客时持刀抢劫乘客手机及现金共计1.2万元，次日被抓。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/1/30 00:00:00",
+        "sentence_months": 36
+      }
+    },
+    {
+      "id": "criminal_13",
+      "type": "criminal",
+      "label": "投放危险物质罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 13,
+        "name": "唐伟",
+        "crime_type": "投放危险物质罪",
+        "crime_detail": "西安饭庄厨师，因与同事发生口角，在公共调料中投入泻药，导致16名顾客严重腹泻送医。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/6/22 00:00:00",
+        "sentence_months": 9
+      }
+    },
+    {
+      "id": "criminal_14",
+      "type": "criminal",
+      "label": "贩卖毒品罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 14,
+        "name": "刘洋",
+        "crime_type": "贩卖毒品罪",
+        "crime_detail": "西安市第三医院护士，利用职务便利从医院麻醉科盗取杜冷丁针剂，转卖给吸毒人员，共计30支。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/3/18 00:00:00",
+        "sentence_months": 28
+      }
+    },
+    {
+      "id": "criminal_15",
+      "type": "criminal",
+      "label": "故意伤害罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 15,
+        "name": "沈涛",
+        "crime_type": "故意伤害罪",
+        "crime_detail": "威尔仕健身教练，因会员退费纠纷殴打顾客致其鼻骨粉碎性骨折（轻伤一级）。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/4/25 00:00:00",
+        "sentence_months": 10
+      }
+    },
+    {
+      "id": "criminal_16",
+      "type": "criminal",
+      "label": "侵犯著作权罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 16,
+        "name": "宋丽",
+        "crime_type": "侵犯著作权罪",
+        "crime_detail": "字节跳动设计师，将公司未上线的UI素材包以5万元价格卖给竞争对手，非法复制发行。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/1/5 00:00:00",
+        "sentence_months": 14
+      }
+    },
+    {
+      "id": "criminal_17",
+      "type": "criminal",
+      "label": "盗窃罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 17,
+        "name": "张磊",
+        "crime_type": "盗窃罪",
+        "crime_detail": "顺丰速运快递员，利用分拣环节盗窃包裹内的电子产品（手机、平板）共价值8万余元，案发后潜逃。",
+        "prison_status": "通缉",
+        "sentence_date": "-",
+        "sentence_months": "-"
+      }
+    },
+    {
+      "id": "criminal_18",
+      "type": "criminal",
+      "label": "伪造国家机关公文罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 18,
+        "name": "郑丽",
+        "crime_type": "伪造国家机关公文罪",
+        "crime_detail": "高新管委会文员，为帮朋友孩子入学，私自伪造教育局审批文件，造成恶劣社会影响。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/5/16 00:00:00",
+        "sentence_months": 6
+      }
+    },
+    {
+      "id": "criminal_19",
+      "type": "criminal",
+      "label": "盗窃罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 19,
+        "name": "韩丽",
+        "crime_type": "盗窃罪",
+        "crime_detail": "灞桥区环卫所保洁员，在清扫路段时多次盗窃沿街商铺门口放置的快递包裹，涉案金额约4000元。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/3/12 00:00:00",
+        "sentence_months": 4
+      }
+    },
+    {
+      "id": "criminal_20",
+      "type": "criminal",
+      "label": "猥亵儿童罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 20,
+        "name": "王丽",
+        "crime_type": "猥亵儿童罪",
+        "crime_detail": "雁塔区第一小学教师，多次在课后辅导时对多名不满12岁男童实施猥亵，案发后潜逃。",
+        "prison_status": "通缉",
+        "sentence_date": "-",
+        "sentence_months": "-"
+      }
+    },
+    {
+      "id": "criminal_21",
+      "type": "criminal",
+      "label": "重大责任事故罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 21,
+        "name": "黄浩",
+        "crime_type": "重大责任事故罪",
+        "crime_detail": "西安建工集团建筑工程师，违规简化施工方案导致楼体坍塌，致3死7伤。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/1/25 00:00:00",
+        "sentence_months": 42
+      }
+    },
+    {
+      "id": "criminal_22",
+      "type": "criminal",
+      "label": "组织考试作弊罪",
+      "color": "#9C27B0",
+      "properties": {
+        "record_id": 22,
+        "name": "许静",
+        "crime_type": "组织考试作弊罪",
+        "crime_detail": "西安市第一中学教师，在高考前向学生出售作弊器材并传递答案，违法所得18万元。",
+        "prison_status": "已服刑",
+        "sentence_date": "2024/3/28 00:00:00",
+        "sentence_months": 22
+      }
+    }
+  ],
+  "links": [
+    {
+      "source": "citizen_610103198102034567",
+      "target": "household_H006",
+      "relation": "户主",
+      "household_address": "西安市碑林区友谊西路15号"
+    },
+    {
+      "source": "citizen_610103198303216789",
+      "target": "household_H017",
+      "relation": "户主",
+      "household_address": "西安市碑林区含光路66号"
+    },
+    {
+      "source": "citizen_610103198705083456",
+      "target": "household_H006",
+      "relation": "配偶",
+      "household_address": "西安市碑林区友谊西路15号"
+    },
+    {
+      "source": "citizen_610103199001011234",
+      "target": "household_H001",
+      "relation": "户主",
+      "household_address": "西安市雁塔区科技二路77号"
+    },
+    {
+      "source": "citizen_610103199812206789",
+      "target": "household_H010",
+      "relation": "户主",
+      "household_address": "西安市碑林区南二环21号"
+    },
+    {
+      "source": "citizen_610103201011016666",
+      "target": "household_H006",
+      "relation": "女",
+      "household_address": "西安市碑林区友谊西路15号"
+    },
+    {
+      "source": "citizen_610103201505200003",
+      "target": "household_H017",
+      "relation": "子",
+      "household_address": "西安市碑林区含光路66号"
+    },
+    {
+      "source": "citizen_610103201507011111",
+      "target": "household_H001",
+      "relation": "子",
+      "household_address": "西安市雁塔区科技二路77号"
+    },
+    {
+      "source": "citizen_610104198803154567",
+      "target": "household_H003",
+      "relation": "户主",
+      "household_address": "西安市莲湖区大庆路129号"
+    },
+    {
+      "source": "citizen_610104199006153456",
+      "target": "household_H011",
+      "relation": "户主",
+      "household_address": "西安市莲湖区唐延路35号"
+    },
+    {
+      "source": "citizen_610104199203058901",
+      "target": "household_H015",
+      "relation": "户主",
+      "household_address": "西安市莲湖区北大街118号"
+    },
+    {
+      "source": "citizen_610104199312056789",
+      "target": "household_H005",
+      "relation": "户主",
+      "household_address": "西安市莲湖区西稍门50号"
+    },
+    {
+      "source": "citizen_610104199409093456",
+      "target": "household_H017",
+      "relation": "配偶",
+      "household_address": "西安市碑林区含光路66号"
+    },
+    {
+      "source": "citizen_610104201706064444",
+      "target": "household_H003",
+      "relation": "子",
+      "household_address": "西安市莲湖区大庆路129号"
+    },
+    {
+      "source": "citizen_610104201712250001",
+      "target": "household_H011",
+      "relation": "子",
+      "household_address": "西安市莲湖区唐延路35号"
+    },
+    {
+      "source": "citizen_610104202003150002",
+      "target": "household_H015",
+      "relation": "子",
+      "household_address": "西安市莲湖区北大街118号"
+    },
+    {
+      "source": "citizen_610104202007076666",
+      "target": "household_H005",
+      "relation": "子",
+      "household_address": "西安市莲湖区西稍门50号"
+    },
+    {
+      "source": "citizen_610111198901021234",
+      "target": "household_H019",
+      "relation": "户主",
+      "household_address": "西安市灞桥区华清路88号"
+    },
+    {
+      "source": "citizen_610111198909091234",
+      "target": "household_H007",
+      "relation": "户主",
+      "household_address": "西安市灞桥区纺渭路100号"
+    },
+    {
+      "source": "citizen_610111199410203456",
+      "target": "household_H012",
+      "relation": "户主",
+      "household_address": "西安市灞桥区纺东街5号"
+    },
+    {
+      "source": "citizen_610111199508086789",
+      "target": "household_H002",
+      "relation": "配偶",
+      "household_address": "西安市未央区凤城八路88号"
+    },
+    {
+      "source": "citizen_610111199604122345",
+      "target": "household_H016",
+      "relation": "户主",
+      "household_address": "西安市灞桥区纺北路33号"
+    },
+    {
+      "source": "citizen_610111200503017777",
+      "target": "household_H007",
+      "relation": "子",
+      "household_address": "西安市灞桥区纺渭路100号"
+    },
+    {
+      "source": "citizen_610111200808088888",
+      "target": "household_H007",
+      "relation": "女",
+      "household_address": "西安市灞桥区纺渭路100号"
+    },
+    {
+      "source": "citizen_610112197805201234",
+      "target": "household_H018",
+      "relation": "户主",
+      "household_address": "西安市未央区龙首北路99号"
+    },
+    {
+      "source": "citizen_610112199108086789",
+      "target": "household_H005",
+      "relation": "配偶",
+      "household_address": "西安市莲湖区西稍门50号"
+    },
+    {
+      "source": "citizen_610112199203013456",
+      "target": "household_H002",
+      "relation": "户主",
+      "household_address": "西安市未央区凤城八路88号"
+    },
+    {
+      "source": "citizen_610112199507123456",
+      "target": "household_H004",
+      "relation": "配偶",
+      "household_address": "西安市雁塔区丈八东路10号"
+    },
+    {
+      "source": "citizen_610112201209150004",
+      "target": "household_H018",
+      "relation": "子",
+      "household_address": "西安市未央区龙首北路99号"
+    },
+    {
+      "source": "citizen_610112201901023333",
+      "target": "household_H002",
+      "relation": "女",
+      "household_address": "西安市未央区凤城八路88号"
+    },
+    {
+      "source": "citizen_610113195005013456",
+      "target": "household_H014",
+      "relation": "户主",
+      "household_address": "西安市雁塔区电子正街88号"
+    },
+    {
+      "source": "citizen_610113197612053456",
+      "target": "household_H007",
+      "relation": "配偶",
+      "household_address": "西安市灞桥区纺渭路100号"
+    },
+    {
+      "source": "citizen_610113198506152345",
+      "target": "household_H001",
+      "relation": "配偶",
+      "household_address": "西安市雁塔区科技二路77号"
+    },
+    {
+      "source": "citizen_610113198706212345",
+      "target": "household_H004",
+      "relation": "户主",
+      "household_address": "西安市雁塔区丈八东路10号"
+    },
+    {
+      "source": "citizen_610113199708074567",
+      "target": "household_H015",
+      "relation": "配偶",
+      "household_address": "西安市莲湖区北大街118号"
+    },
+    {
+      "source": "citizen_610113200105013456",
+      "target": "household_H009",
+      "relation": "户主",
+      "household_address": "西安市雁塔区科技路1号"
+    },
+    {
+      "source": "citizen_610113201806085555",
+      "target": "household_H004",
+      "relation": "女",
+      "household_address": "西安市雁塔区丈八东路10号"
+    },
+    {
+      "source": "citizen_610116197802124567",
+      "target": "household_H008",
+      "relation": "户主",
+      "household_address": "西安市长安区韦曲北街22号"
+    },
+    {
+      "source": "citizen_610116198001019999",
+      "target": "household_H008",
+      "relation": "配偶",
+      "household_address": "西安市长安区韦曲北街22号"
+    },
+    {
+      "source": "citizen_610116198510023456",
+      "target": "household_H011",
+      "relation": "配偶",
+      "household_address": "西安市莲湖区唐延路35号"
+    },
+    {
+      "source": "citizen_610116199104209876",
+      "target": "household_H003",
+      "relation": "配偶",
+      "household_address": "西安市莲湖区大庆路129号"
+    },
+    {
+      "source": "citizen_610116199105163456",
+      "target": "household_H018",
+      "relation": "配偶",
+      "household_address": "西安市未央区龙首北路99号"
+    },
+    {
+      "source": "citizen_610116200306051234",
+      "target": "household_H013",
+      "relation": "户主",
+      "household_address": "西安市长安区滦镇街办2号"
+    },
+    {
+      "source": "citizen_610116200503151111",
+      "target": "household_H008",
+      "relation": "子",
+      "household_address": "西安市长安区韦曲北街22号"
+    },
+    {
+      "source": "citizen_610103198102034567",
+      "target": "criminal_1",
+      "relation": "有案底",
+      "crime_type": "职务侵占罪"
+    },
+    {
+      "source": "citizen_610103198303216789",
+      "target": "criminal_2",
+      "relation": "有案底",
+      "crime_type": "串通投标罪"
+    },
+    {
+      "source": "citizen_610103198705083456",
+      "target": "criminal_3",
+      "relation": "有案底",
+      "crime_type": "诈骗罪"
+    },
+    {
+      "source": "citizen_610103199001011234",
+      "target": "criminal_4",
+      "relation": "有案底",
+      "crime_type": "非法获取计算机信息系统数据罪"
+    },
+    {
+      "source": "citizen_610103199812206789",
+      "target": "criminal_5",
+      "relation": "有案底",
+      "crime_type": "帮助信息网络犯罪活动罪"
+    },
+    {
+      "source": "citizen_610104198803154567",
+      "target": "criminal_6",
+      "relation": "有案底",
+      "crime_type": "交通肇事罪"
+    },
+    {
+      "source": "citizen_610104199006153456",
+      "target": "criminal_7",
+      "relation": "有案底",
+      "crime_type": "伪造证据罪"
+    },
+    {
+      "source": "citizen_610104199203058901",
+      "target": "criminal_8",
+      "relation": "通缉在逃",
+      "crime_type": "贪污受贿罪"
+    },
+    {
+      "source": "citizen_610104199312056789",
+      "target": "criminal_9",
+      "relation": "通缉在逃",
+      "crime_type": "开设赌场罪"
+    },
+    {
+      "source": "citizen_610104199409093456",
+      "target": "criminal_10",
+      "relation": "有案底",
+      "crime_type": "挪用资金罪"
+    },
+    {
+      "source": "citizen_610111198901021234",
+      "target": "criminal_11",
+      "relation": "有案底",
+      "crime_type": "侵犯商业秘密罪"
+    },
+    {
+      "source": "citizen_610111198909091234",
+      "target": "criminal_12",
+      "relation": "有案底",
+      "crime_type": "抢劫罪"
+    },
+    {
+      "source": "citizen_610111199410203456",
+      "target": "criminal_13",
+      "relation": "有案底",
+      "crime_type": "投放危险物质罪"
+    },
+    {
+      "source": "citizen_610111199508086789",
+      "target": "criminal_14",
+      "relation": "有案底",
+      "crime_type": "贩卖毒品罪"
+    },
+    {
+      "source": "citizen_610111199604122345",
+      "target": "criminal_15",
+      "relation": "有案底",
+      "crime_type": "故意伤害罪"
+    },
+    {
+      "source": "citizen_610112199108086789",
+      "target": "criminal_16",
+      "relation": "有案底",
+      "crime_type": "侵犯著作权罪"
+    },
+    {
+      "source": "citizen_610112199203013456",
+      "target": "criminal_17",
+      "relation": "通缉在逃",
+      "crime_type": "盗窃罪"
+    },
+    {
+      "source": "citizen_610112199507123456",
+      "target": "criminal_18",
+      "relation": "有案底",
+      "crime_type": "伪造国家机关公文罪"
+    },
+    {
+      "source": "citizen_610113197612053456",
+      "target": "criminal_19",
+      "relation": "有案底",
+      "crime_type": "盗窃罪"
+    },
+    {
+      "source": "citizen_610113198506152345",
+      "target": "criminal_20",
+      "relation": "通缉在逃",
+      "crime_type": "猥亵儿童罪"
+    },
+    {
+      "source": "citizen_610113198706212345",
+      "target": "criminal_21",
+      "relation": "有案底",
+      "crime_type": "重大责任事故罪"
+    },
+    {
+      "source": "citizen_610113199708074567",
+      "target": "criminal_22",
+      "relation": "有案底",
+      "crime_type": "组织考试作弊罪"
+    },
+    {
+      "source": "BJR20260500001",
+      "target": "case_JJ20260500001",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500002",
+      "target": "case_JJ20260500002",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500003",
+      "target": "case_JJ20260500003",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500004",
+      "target": "case_JJ20260500004",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500005",
+      "target": "case_JJ20260500005",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500006",
+      "target": "case_JJ20260500006",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500007",
+      "target": "case_JJ20260500007",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500008",
+      "target": "case_JJ20260500008",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500009",
+      "target": "case_JJ20260500009",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500010",
+      "target": "case_JJ20260500010",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500011",
+      "target": "case_JJ20260500011",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500012",
+      "target": "case_JJ20260500012",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500013",
+      "target": "case_JJ20260500013",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500014",
+      "target": "case_JJ20260500014",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500015",
+      "target": "case_JJ20260500015",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500016",
+      "target": "case_JJ20260500016",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500017",
+      "target": "case_JJ20260500017",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500018",
+      "target": "case_JJ20260500018",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500019",
+      "target": "case_JJ20260500019",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500020",
+      "target": "case_JJ20260500020",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500021",
+      "target": "case_JJ20260500021",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500022",
+      "target": "case_JJ20260500022",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500023",
+      "target": "case_JJ20260500023",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500024",
+      "target": "case_JJ20260500024",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500025",
+      "target": "case_JJ20260500025",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500026",
+      "target": "case_JJ20260500026",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500027",
+      "target": "case_JJ20260500027",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500028",
+      "target": "case_JJ20260500028",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500029",
+      "target": "case_JJ20260500029",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "BJR20260500030",
+      "target": "case_JJ20260500030",
+      "relation": "涉及",
+      "remark": "报警人"
+    },
+    {
+      "source": "police_MJ001",
+      "target": "case_JJ20260500001",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ003",
+      "target": "case_JJ20260500002",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ004",
+      "target": "case_JJ20260500003",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ002",
+      "target": "case_JJ20260500004",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ005",
+      "target": "case_JJ20260500005",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ006",
+      "target": "case_JJ20260500006",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ003",
+      "target": "case_JJ20260500007",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ001",
+      "target": "case_JJ20260500008",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ002",
+      "target": "case_JJ20260500009",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ004",
+      "target": "case_JJ20260500010",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ005",
+      "target": "case_JJ20260500011",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ006",
+      "target": "case_JJ20260500012",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ003",
+      "target": "case_JJ20260500013",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ001",
+      "target": "case_JJ20260500014",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ002",
+      "target": "case_JJ20260500015",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ004",
+      "target": "case_JJ20260500016",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ005",
+      "target": "case_JJ20260500017",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ006",
+      "target": "case_JJ20260500018",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ003",
+      "target": "case_JJ20260500019",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ001",
+      "target": "case_JJ20260500020",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ002",
+      "target": "case_JJ20260500021",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ005",
+      "target": "case_JJ20260500022",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ006",
+      "target": "case_JJ20260500023",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ003",
+      "target": "case_JJ20260500024",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ001",
+      "target": "case_JJ20260500025",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ002",
+      "target": "case_JJ20260500026",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ004",
+      "target": "case_JJ20260500027",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ003",
+      "target": "case_JJ20260500028",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ006",
+      "target": "case_JJ20260500029",
+      "relation": "负责",
+      "remark": "处警民警"
+    },
+    {
+      "source": "police_MJ005",
+      "target": "case_JJ20260500030",
+      "relation": "负责",
+      "remark": "处警民警"
+    }
+  ]
+}

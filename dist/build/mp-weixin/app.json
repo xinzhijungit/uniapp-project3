@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/person-analysis/index",
+    "pages/intelligent-tags/index",
+    "pages/intelligent-tags/edit",
+    "pages/warning/index",
+    "pages/warning/detail",
+    "pages/warning/indicator/index",
+    "pages/warning/indicator/edit",
+    "pages/warning/rule/index",
+    "pages/warning/rule/edit"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "西安公安智慧平台",
+    "navigationBarBackgroundColor": "#1E88E5",
+    "backgroundColor": "#F5F7FA"
+  },
+  "usingComponents": {}
+}

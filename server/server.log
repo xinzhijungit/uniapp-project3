@@ -1,0 +1,324 @@
+服务器已启动，端口: 3000
+API地址: http://localhost:3000/api/v1
+[DB] 成功获取数据库连接
+[DB] 执行SQL: 
+      CREATE TABLE IF NOT EXISTS XAGA_config (
+        CONFIG_KEY VARCHAR(64) PRIMARY KEY,
+        CONFIG_VALUE VARCHAR(255) NOT NULL,
+        CONFIG_TYPE VARCHAR(20) NOT NULL DEFAULT 'STRING',
+        CONFIG_DESC VARCHAR(200),
+        EFFECT_DESC VARCHAR(500),
+        CREATE_TIME DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        UPDATE_TIME DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+      )
+    
+[DB] 参数: []
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: 
+        CREATE UNIQUE INDEX idx_tag_entity 
+        ON TAG_EXAMPLE_ontology (TAG_CODE, ENTITY_KEY)
+      
+[DB] 参数: []
+[DB] 数据库操作失败: Duplicate key name 'idx_tag_entity'
+[DB] 数据库连接已释放
+索引 idx_tag_entity 已存在，跳过创建
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [
+  'risk_score_high_threshold',
+  '80',
+  'INT',
+  '高风险阈值',
+  '决定人员风险等级划分，高于80显示红色高危标识'
+]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [
+  'risk_score_medium_threshold',
+  '50',
+  'INT',
+  '中风险阈值',
+  '决定中风险等级划分，50-80显示橙色中风险标识'
+]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [
+  'weight_high_risk_tag',
+  '0.4',
+  'FLOAT',
+  '高优先级标签权重',
+  '决定高优先级标签对总风险评分的贡献比例'
+]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [
+  'weight_medium_risk_tag',
+  '0.3',
+  'FLOAT',
+  '中优先级标签权重',
+  '决定中优先级标签对总风险评分的贡献比例'
+]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [
+  'weight_low_risk_tag',
+  '0.2',
+  'FLOAT',
+  '低优先级标签权重',
+  '决定低优先级标签对总风险评分的贡献比例'
+]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [
+  'ai_model_url',
+  'https://api.deepseek.com/v1/chat/completions',
+  'STRING',
+  'AI模型服务地址',
+  '决定AI标注服务的调用地址'
+]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [
+  'ai_timeout_seconds',
+  '30',
+  'INT',
+  '单次调用超时时间(秒)',
+  '决定AI标注响应超时时间，影响用户体验'
+]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [ 'ai_max_retry_count', '3', 'INT', '重试次数', '决定AI标注失败后的重试次数，影响标注成功率' ]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [
+  'graph_max_depth',
+  '3',
+  'INT',
+  '图谱最大查询深度',
+  '决定图谱展示的关系深度，深度越大展示越丰富但性能下降'
+]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [
+  'graph_max_nodes',
+  '100',
+  'INT',
+  '单次查询最大节点数',
+  '决定图谱节点数量上限，影响图谱展示复杂度'
+]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: INSERT INTO XAGA_config (CONFIG_KEY, CONFIG_VALUE, CONFIG_TYPE, CONFIG_DESC, EFFECT_DESC) 
+         VALUES (?, ?, ?, ?, ?) 
+         ON DUPLICATE KEY UPDATE UPDATE_TIME = NOW()
+[DB] 参数: [
+  'graph_max_relations',
+  '200',
+  'INT',
+  '单次查询最大关系数',
+  '决定图谱关系数量上限，影响图谱展示复杂度'
+]
+[DB] 查询结果: undefined 条记录
+[DB] 数据库连接已释放
+配置参数已成功插入数据库
+[DB] 成功获取数据库连接
+[DB] 执行SQL: 
+      SELECT e.*, r.rule_name as RULE_NAME, 
+             CASE e.alert_level 
+               WHEN 'high' THEN '高危' 
+               WHEN 'medium' THEN '中危' 
+               WHEN 'low' THEN '低危' 
+               WHEN 'RED' THEN '红色特急'
+               WHEN 'ORANGE' THEN '橙色紧急'
+               WHEN 'YELLOW' THEN '黄色关注'
+               ELSE e.alert_level 
+             END AS ALERT_LEVEL_NAME,
+             CASE e.status 
+               WHEN 'pending' THEN '待处理' 
+               WHEN 'processed' THEN '处理中' 
+               WHEN 'adopted' THEN '已采纳' 
+               WHEN 'rejected' THEN '已驳回'
+               WHEN 'PENDING' THEN '待处理'
+               WHEN 'ADOPTED' THEN '已采纳'
+               WHEN 'REJECTED' THEN '已驳回'
+               ELSE e.status 
+             END AS STATUS_NAME
+      FROM warning_event e
+      LEFT JOIN warning_rule r ON e.rule_id = r.id
+      WHERE e.event_no = ?
+    
+[DB] 参数: [ 'YJ-2026-0521-0001' ]
+[DB] 查询结果: 1 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: 
+        SELECT i.JJDBH as jjdbh, i.BJNR as bjnr, i.BJLXDM as bjlxdm,
+               i.JJDZT as disposalStatus, i.JQJB as urgencyLevel
+        FROM warning_event_related_incident rel
+        JOIN JJD_JJD i ON rel.jjdbh = i.JJDBH
+        WHERE rel.event_id = ?
+      
+[DB] 参数: [ 3001 ]
+[DB] 查询结果: 3 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: 
+      SELECT e.*, r.rule_name as RULE_NAME, 
+             CASE e.alert_level 
+               WHEN 'high' THEN '高危' 
+               WHEN 'medium' THEN '中危' 
+               WHEN 'low' THEN '低危' 
+               WHEN 'RED' THEN '红色特急'
+               WHEN 'ORANGE' THEN '橙色紧急'
+               WHEN 'YELLOW' THEN '黄色关注'
+               ELSE e.alert_level 
+             END AS ALERT_LEVEL_NAME,
+             CASE e.status 
+               WHEN 'pending' THEN '待处理' 
+               WHEN 'processed' THEN '处理中' 
+               WHEN 'adopted' THEN '已采纳' 
+               WHEN 'rejected' THEN '已驳回'
+               WHEN 'PENDING' THEN '待处理'
+               WHEN 'ADOPTED' THEN '已采纳'
+               WHEN 'REJECTED' THEN '已驳回'
+               ELSE e.status 
+             END AS STATUS_NAME
+      FROM warning_event e
+      LEFT JOIN warning_rule r ON e.rule_id = r.id
+      WHERE e.event_no = ?
+    
+[DB] 参数: [ 'YJ-2026-0521-0001' ]
+[DB] 查询结果: 1 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: 
+        SELECT i.JJDBH as jjdbh, i.BJNR as bjnr, i.BJLXDM as bjlxdm,
+               i.JJDZT as disposalStatus, i.JQJB as urgencyLevel
+        FROM warning_event_related_incident rel
+        JOIN JJD_JJD i ON rel.jjdbh = i.JJDBH
+        WHERE rel.event_id = ?
+      
+[DB] 参数: [ 3001 ]
+[DB] 查询结果: 3 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: 
+      SELECT e.*, r.rule_name as RULE_NAME, 
+             CASE e.alert_level 
+               WHEN 'high' THEN '高危' 
+               WHEN 'medium' THEN '中危' 
+               WHEN 'low' THEN '低危' 
+               WHEN 'RED' THEN '红色特急'
+               WHEN 'ORANGE' THEN '橙色紧急'
+               WHEN 'YELLOW' THEN '黄色关注'
+               ELSE e.alert_level 
+             END AS ALERT_LEVEL_NAME,
+             CASE e.status 
+               WHEN 'pending' THEN '待处理' 
+               WHEN 'processed' THEN '处理中' 
+               WHEN 'adopted' THEN '已采纳' 
+               WHEN 'rejected' THEN '已驳回'
+               WHEN 'PENDING' THEN '待处理'
+               WHEN 'ADOPTED' THEN '已采纳'
+               WHEN 'REJECTED' THEN '已驳回'
+               ELSE e.status 
+             END AS STATUS_NAME
+      FROM warning_event e
+      LEFT JOIN warning_rule r ON e.rule_id = r.id
+      WHERE e.event_no = ?
+    
+[DB] 参数: [ 'YJ-2026-0521-0001' ]
+[DB] 查询结果: 1 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: 
+        SELECT i.JJDBH as jjdbh, i.BJNR as bjnr, i.BJLXDM as bjlxdm,
+               i.JJDZT as disposalStatus, i.JQJB as urgencyLevel
+        FROM warning_event_related_incident rel
+        JOIN JJD_JJD i ON rel.jjdbh = i.JJDBH
+        WHERE rel.event_id = ?
+      
+[DB] 参数: [ 3001 ]
+[DB] 查询结果: 3 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: 
+      SELECT e.*, r.rule_name as RULE_NAME, 
+             CASE e.alert_level 
+               WHEN 'high' THEN '高危' 
+               WHEN 'medium' THEN '中危' 
+               WHEN 'low' THEN '低危' 
+               WHEN 'RED' THEN '红色特急'
+               WHEN 'ORANGE' THEN '橙色紧急'
+               WHEN 'YELLOW' THEN '黄色关注'
+               ELSE e.alert_level 
+             END AS ALERT_LEVEL_NAME,
+             CASE e.status 
+               WHEN 'pending' THEN '待处理' 
+               WHEN 'processed' THEN '处理中' 
+               WHEN 'adopted' THEN '已采纳' 
+               WHEN 'rejected' THEN '已驳回'
+               WHEN 'PENDING' THEN '待处理'
+               WHEN 'ADOPTED' THEN '已采纳'
+               WHEN 'REJECTED' THEN '已驳回'
+               ELSE e.status 
+             END AS STATUS_NAME
+      FROM warning_event e
+      LEFT JOIN warning_rule r ON e.rule_id = r.id
+      WHERE e.event_no = ?
+    
+[DB] 参数: [ 'YJ-2026-0521-0001' ]
+[DB] 查询结果: 1 条记录
+[DB] 数据库连接已释放
+[DB] 成功获取数据库连接
+[DB] 执行SQL: 
+        SELECT i.JJDBH as jjdbh, i.BJNR as bjnr, i.BJLXDM as bjlxdm,
+               i.JJDZT as disposalStatus, i.JQJB as urgencyLevel
+        FROM warning_event_related_incident rel
+        JOIN JJD_JJD i ON rel.jjdbh = i.JJDBH
+        WHERE rel.event_id = ?
+      
+[DB] 参数: [ 3001 ]
+[DB] 查询结果: 3 条记录
+[DB] 数据库连接已释放

@@ -1,0 +1,1 @@
+"use strict";const e=require("../common/vendor.js"),s=e.defineComponent({__name:"SuggestionCard",props:{suggestions:{}},setup:s=>(s,t)=>e.e({a:s.suggestions.length>0},s.suggestions.length>0?{b:e.f(s.suggestions,(s,t,n)=>({a:e.t(t+1),b:e.t(s),c:t}))}:{})}),t=e._export_sfc(s,[["__scopeId","data-v-2fecafcd"]]);wx.createComponent(t);

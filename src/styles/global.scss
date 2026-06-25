@@ -1,0 +1,145 @@
+page {
+  background-color: $bg-primary;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: $font-size-base;
+  color: $text-primary;
+  line-height: 1.5;
+}
+
+.container {
+  padding: $spacing-md;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.card {
+  background: $bg-card;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-sm;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  border-radius: $border-radius-card;
+  font-size: $font-size-base;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  
+  &-primary {
+    background: linear-gradient(135deg, $primary-color, $primary-dark);
+    color: $text-white;
+    
+    &:active {
+      opacity: 0.85;
+    }
+  }
+  
+  &-secondary {
+    background: $bg-hover;
+    color: $text-primary;
+    
+    &:active {
+      background: darken($bg-hover, 3%);
+    }
+  }
+  
+  &-warning {
+    background: $warning-color;
+    color: $text-white;
+  }
+  
+  &-danger {
+    background: $error-color;
+    color: $text-white;
+  }
+  
+  &-small {
+    height: 64rpx;
+    font-size: $font-size-sm;
+    padding: 0 $spacing-lg;
+  }
+}
+
+.flex {
+  display: flex;
+  
+  &-center {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &-between {
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  &-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.text-primary { color: $primary-color; }
+.text-success { color: $success-color; }
+.text-warning { color: $warning-color; }
+.text-error { color: $error-color; }
+.text-secondary { color: $text-secondary; }
+.text-light { color: $text-light; }
+
+.mt-xs { margin-top: $spacing-xs; }
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+
+.mb-xs { margin-bottom: $spacing-xs; }
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+
+.fs-xs { font-size: $font-size-xs; }
+.fs-sm { font-size: $font-size-sm; }
+.fs-base { font-size: $font-size-base; }
+.fs-lg { font-size: $font-size-lg; }
+.fs-xl { font-size: $font-size-xl; }
+.fs-xxl { font-size: $font-size-xxl; }
+
+.font-bold { font-weight: 600; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: $font-size-xs;
+  
+  &-high {
+    background: rgba($error-color, 0.1);
+    color: $error-color;
+  }
+  
+  &-medium {
+    background: rgba($warning-color, 0.1);
+    color: $warning-color;
+  }
+  
+  &-low {
+    background: rgba($success-color, 0.1);
+    color: $success-color;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #F0F0F0 25%, #E0E0E0 50%, #F0F0F0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

@@ -1,0 +1,15 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "人联研判",
+  "usingComponents": {
+    "top-nav": "../../components/TopNav",
+    "side-menu": "../../components/SideMenu",
+    "search-panel": "../../components/SearchPanel",
+    "person-info-card": "../../components/PersonInfoCard",
+    "risk-analysis-card": "../../components/RiskAnalysisCard",
+    "knowledge-graph": "../../components/KnowledgeGraph",
+    "case-records-card": "../../components/CaseRecordsCard",
+    "household-card": "../../components/HouseholdCard",
+    "suggestion-card": "../../components/SuggestionCard"
+  }
+}

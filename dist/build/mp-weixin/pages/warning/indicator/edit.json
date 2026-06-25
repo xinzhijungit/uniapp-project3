@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "编辑指标",
+  "usingComponents": {
+    "top-nav": "../../../components/TopNav"
+  }
+}

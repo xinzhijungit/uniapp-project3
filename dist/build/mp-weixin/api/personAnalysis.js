@@ -1,0 +1,1 @@
+"use strict";const r=require("./request.js");exports.queryGraph=async function(e){return r.post("/graph/query",e)},exports.regenerateGraph=async function(){return r.post("/graph/regenerate",{})},exports.searchEntity=async function(e){return r.post("/search/entity",e)};

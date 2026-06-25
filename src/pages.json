@@ -1,0 +1,87 @@
+{
+  "pages": [
+    {
+      "path": "pages/person-analysis/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "人联研判"
+      }
+    },
+    {
+      "path": "pages/qa/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "智能问答"
+      }
+    },
+    {
+      "path": "pages/statistics/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "统计分析"
+      }
+    },
+    {
+      "path": "pages/intelligent-tags/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "智能标签"
+      }
+    },
+    {
+      "path": "pages/intelligent-tags/edit",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "标签编辑"
+      }
+    },
+    {
+      "path": "pages/warning/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "预警管理"
+      }
+    },
+    {
+      "path": "pages/warning/detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "预警详情"
+      }
+    },
+    {
+      "path": "pages/warning/indicator/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "预警指标"
+      }
+    },
+    {
+      "path": "pages/warning/indicator/edit",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "编辑指标"
+      }
+    },
+    {
+      "path": "pages/warning/rule/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "预警规则"
+      }
+    },
+    {
+      "path": "pages/warning/rule/edit",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "编辑规则"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "西安公安智慧平台",
+    "navigationBarBackgroundColor": "#1E88E5",
+    "backgroundColor": "#F5F7FA"
+  }
+}

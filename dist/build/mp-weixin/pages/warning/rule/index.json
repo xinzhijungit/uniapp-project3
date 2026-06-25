@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "预警规则",
+  "usingComponents": {
+    "top-nav": "../../../components/TopNav"
+  }
+}
