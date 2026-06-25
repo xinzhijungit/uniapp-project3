@@ -300,12 +300,12 @@ app.post('/api/v1/search/entity', async (req, res) => {
       }
       
       // 从数据库查询标签配置
-      const tagResults = await query('SELECT TAG_CODE, TAG_NAME, PRIORITY, TAG_DESC FROM TAG_CONFIG_ontology WHERE STATUS = 1')
+      const tagResults = await query('SELECT TAG_CODE, TAG_NAME, PRIORITY, DESCRIPTION FROM TAG_CONFIG_ontology WHERE STATUS = 1')
       const tags = tagResults.map(tag => ({
         tagCode: tag.TAG_CODE,
         tagName: tag.TAG_NAME,
         priority: tag.PRIORITY || 1,
-        description: tag.TAG_DESC || ''
+        description: tag.DESCRIPTION || ''
       }))
       
       // 构建知识图谱数据
@@ -647,11 +647,11 @@ app.get('/api/v1/tags/:tagCode', async (req, res) => {
 // 创建标签
 app.post('/api/v1/tags', async (req, res) => {
   try {
-    const { TAG_CODE, TAG_NAME, TAG_DESC, STATUS, PRIORITY, CATEGORY } = req.body
+    const { TAG_CODE, TAG_NAME, DESCRIPTION, STATUS, PRIORITY, CATEGORY } = req.body
     
     const result = await query(
-      'INSERT INTO TAG_CONFIG_ontology (TAG_CODE, TAG_NAME, TAG_DESC, STATUS, PRIORITY, CATEGORY, CREATE_TIME, UPDATE_TIME) VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())',
-      [TAG_CODE, TAG_NAME, TAG_DESC, STATUS || 1, PRIORITY || 1, CATEGORY]
+      'INSERT INTO TAG_CONFIG_ontology (TAG_CODE, TAG_NAME, DESCRIPTION, STATUS, PRIORITY, CATEGORY, CREATE_TIME, UPDATE_TIME) VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())',
+      [TAG_CODE, TAG_NAME, DESCRIPTION, STATUS || 1, PRIORITY || 1, CATEGORY]
     )
     
     res.json({ code: 200, message: 'success', data: { TAG_CODE } })
@@ -665,11 +665,11 @@ app.post('/api/v1/tags', async (req, res) => {
 app.put('/api/v1/tags/:tagCode', async (req, res) => {
   try {
     const { tagCode } = req.params
-    const { TAG_NAME, TAG_DESC, STATUS, PRIORITY, CATEGORY } = req.body
+    const { TAG_NAME, DESCRIPTION, STATUS, PRIORITY, CATEGORY } = req.body
     
     await query(
-      'UPDATE TAG_CONFIG_ontology SET TAG_NAME = ?, TAG_DESC = ?, STATUS = ?, PRIORITY = ?, CATEGORY = ?, UPDATE_TIME = NOW() WHERE TAG_CODE = ?',
-      [TAG_NAME, TAG_DESC, STATUS, PRIORITY, CATEGORY, tagCode]
+      'UPDATE TAG_CONFIG_ontology SET TAG_NAME = ?, DESCRIPTION = ?, STATUS = ?, PRIORITY = ?, CATEGORY = ?, UPDATE_TIME = NOW() WHERE TAG_CODE = ?',
+      [TAG_NAME, DESCRIPTION, STATUS, PRIORITY, CATEGORY, tagCode]
     )
     
     res.json({ code: 200, message: 'success' })
