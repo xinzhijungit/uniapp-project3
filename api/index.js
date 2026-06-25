@@ -242,22 +242,65 @@ app.post('/api/v1/search/entity', async (req, res) => {
         suggestions.push('建议常规处理，注意观察异常行为')
       }
       
-      // 构建本体特征
+      // 构建本体特征（适配前端格式 {type, title, desc}）
       const features = []
       if (personInfo.SFZDRY === '1') {
-        features.push({ name: '重点人员标识', value: '是', type: 'high' })
+        features.push({ type: 'high', title: '重点人员标识', desc: '该人员被标记为重点监控对象' })
       }
       if (personInfo.CPH_ontology) {
-        features.push({ name: '关联车牌', value: personInfo.CPH_ontology, type: 'normal' })
+        features.push({ type: 'normal', title: '关联车牌', desc: `车牌号：${personInfo.CPH_ontology}` })
       }
       if (personInfo.LXDH) {
-        features.push({ name: '联系电话', value: personInfo.LXDH, type: 'normal' })
+        features.push({ type: 'normal', title: '联系电话', desc: `电话：${personInfo.LXDH}` })
       }
       if (caseRecords.length > 0) {
-        features.push({ name: '历史警情数', value: `${caseRecords.length}次`, type: 'medium' })
+        features.push({ type: 'medium', title: '历史警情', desc: `共有${caseRecords.length}次警情记录` })
       }
       if (personCriminalRecords.length > 0) {
-        features.push({ name: '案底记录', value: `${personCriminalRecords.length}条`, type: 'high' })
+        const criminalDesc = personCriminalRecords.map(r => r.prison_status || '有案底').join('、')
+        features.push({ type: 'high', title: '案底记录', desc: `服刑状态：${criminalDesc}` })
+      }
+      
+      // 构建标签数据（适配前端格式 {tagCode, tagName, priority, description}）
+      const tags = []
+      if (personInfo.SFZDRY === '1') {
+        tags.push({
+          tagCode: 'key_person',
+          tagName: '重点人员',
+          priority: 3,
+          description: '该人员被系统标记为重点监控对象，需要特别关注其活动轨迹和行为动态。'
+        })
+      }
+      if (warningLevel.level === 'high') {
+        tags.push({
+          tagCode: 'high_risk',
+          tagName: '高危人员',
+          priority: 3,
+          description: warningLevel.description
+        })
+      } else if (warningLevel.level === 'medium') {
+        tags.push({
+          tagCode: 'medium_risk',
+          tagName: '关注人员',
+          priority: 2,
+          description: warningLevel.description
+        })
+      }
+      if (personCriminalRecords.length > 0) {
+        tags.push({
+          tagCode: 'criminal_record',
+          tagName: '有案底',
+          priority: 2,
+          description: `该人员有${personCriminalRecords.length}条案底记录，需持续关注其社会行为。`
+        })
+      }
+      if (caseRecords.length > 0) {
+        tags.push({
+          tagCode: 'frequent_alarm',
+          tagName: '频繁报警',
+          priority: 1,
+          description: `该人员涉及${caseRecords.length}次警情，建议关注其社会关系。`
+        })
       }
       
       // 构建知识图谱数据
@@ -341,7 +384,7 @@ app.post('/api/v1/search/entity', async (req, res) => {
           graphData: { nodes, links },
           analysisText: `基于多维度数据分析完成，该人员风险评分为${riskScore}分，${warningLevel.description}`,
           features,
-          tags: riskTags
+          tags
         }
       })
     } else {
