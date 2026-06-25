@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mysql = require('mysql2/promise')
+const https = require('https')
 
 // 数据库连接配置（直接写在代码中）
 const DB_CONFIG = {
@@ -34,6 +35,111 @@ async function query(sql, params = []) {
       await connection.release()
     }
   }
+}
+
+// AI模型调用函数
+async function callAIModel(prompt) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      // 读取所有AI相关配置
+      console.log('正在从数据库读取AI配置...')
+      const configResults = await query('SELECT CONFIG_KEY, CONFIG_VALUE FROM XAGA_config WHERE CONFIG_KEY LIKE ?', ['ai_%'])
+      
+      console.log('数据库查询结果:', JSON.stringify(configResults, null, 2))
+      
+      const config = {}
+      configResults.forEach(row => {
+        config[row.CONFIG_KEY] = row.CONFIG_VALUE
+      })
+      
+      // 使用配置或默认值
+      const aiModelUrl = config.ai_model_url || 'https://api.deepseek.com/v1/chat/completions'
+      const aiModelName = config.ai_model_name || 'deepseek-chat'
+      const aiApiKey = config.ai_api_key || ''
+      const aiMaxTokens = parseInt(config.ai_max_tokens) || 10
+      const aiTemperature = parseFloat(config.ai_temperature) || 0.1
+      const aiTimeout = parseInt(config.ai_timeout_seconds) * 1000 || 30000
+      
+      // 检查API密钥是否配置
+      if (!aiApiKey || aiApiKey.trim() === '') {
+        reject(new Error('AI API密钥未配置，请在XAGA_config表中设置ai_api_key'))
+        return
+      }
+      
+      const postData = JSON.stringify({
+        model: aiModelName,
+        messages: [
+          { role: "user", content: prompt }
+        ],
+        temperature: aiTemperature
+      })
+      
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${aiApiKey}`
+        },
+        timeout: aiTimeout,
+        rejectUnauthorized: false
+      }
+      
+      const req = https.request(new URL(aiModelUrl), options, (res) => {
+        let data = ''
+        res.on('data', (chunk) => {
+          data += chunk
+        })
+        res.on('end', () => {
+          try {
+            const result = JSON.parse(data)
+            console.log('AI模型返回数据:', JSON.stringify(result, null, 2))
+            
+            // 尝试多种返回格式
+            let content = ''
+            if (result.choices && result.choices.length > 0 && result.choices[0].message) {
+              const message = result.choices[0].message
+              
+              // 优先使用content
+              if (message.content && message.content.trim()) {
+                content = message.content.trim()
+              } 
+              // 如果content为空，尝试使用reasoning_content（Kimi模型特有）
+              else if (message.reasoning_content && message.reasoning_content.trim()) {
+                content = message.reasoning_content.trim()
+              }
+            } else if (result.response) {
+              content = result.response.trim()
+            } else if (result.result) {
+              content = result.result.trim()
+            } else if (result.text) {
+              content = result.text.trim()
+            } else if (typeof result === 'string') {
+              content = result.trim()
+            }
+            
+            if (content) {
+              resolve(content)
+            } else {
+              console.error('AI模型返回格式异常，无法提取内容:', JSON.stringify(result))
+              reject(new Error('AI模型返回格式异常'))
+            }
+          } catch (error) {
+            console.error('解析AI模型响应失败:', error.message, '原始数据:', data)
+            reject(new Error('解析AI模型响应失败'))
+          }
+        })
+      })
+      
+      req.on('error', (error) => {
+        reject(error)
+      })
+      
+      req.write(postData)
+      req.end()
+    } catch (error) {
+      reject(error)
+    }
+  })
 }
 
 const app = express()
@@ -394,10 +500,14 @@ app.post('/api/v1/qa/ask', async (req, res) => {
   try {
     const { question } = req.body
     
+    // 调用AI模型
+    const prompt = `你是一个公安数据分析助手。请回答以下问题：\n\n${question}\n\n请提供简洁、专业的回答。`
+    const aiAnswer = await callAIModel(prompt)
+    
     // 保存对话记录
     const insertResult = await query(
       'INSERT INTO qa_conversation (user_id, user_name, question, answer, status) VALUES (?, ?, ?, ?, ?)',
-      ['test_user', '测试用户', question, 'AI分析完成', 'COMPLETED']
+      ['test_user', '测试用户', question, aiAnswer, 'COMPLETED']
     )
     
     res.json({
@@ -406,13 +516,14 @@ app.post('/api/v1/qa/ask', async (req, res) => {
       data: {
         conversationId: insertResult.insertId,
         question,
-        answer: '已收到您的问题，正在分析中...\n\n根据数据分析，为您提供以下信息：\n\n当前系统运行正常，数据更新及时。',
+        answer: aiAnswer,
         charts: [],
-        keyFindings: ['系统数据整体运行正常', '数据更新及时'],
+        keyFindings: ['AI分析完成'],
         extensions: ['建议提出更具体的问题以获取更详细的分析']
       }
     })
   } catch (error) {
+    console.error('智能问答失败:', error)
     res.json({ code: 500, message: '智能问答失败', detail: error.message })
   }
 })
