@@ -421,9 +421,10 @@ app.post('/api/v1/search/entity', async (req, res) => {
 
 // 知识图谱查询接口 - 从 graph-data.json 文件读取数据
 // 支持关系筛选和路径长度为3的关联查询
+// 支持通过身份证号或节点ID查找，自动关联同户籍人员及其案底
 app.post('/api/v1/graph/query', async (req, res) => {
   try {
-    const { entityId, entityType, relationFilters = [], maxDepth = 2 } = req.body
+    const { entityId, entityType, idCard, relationFilters = [], maxDepth = 3 } = req.body
     
     // 读取 graph-data.json 文件
     const graphDataPath = path.join(__dirname, '..', 'server', 'graph-data.json')
@@ -437,9 +438,22 @@ app.post('/api/v1/graph/query', async (req, res) => {
     const links = []
     const nodeIds = new Set()
     const linkIds = new Set()
+    const processedHouseholds = new Set() // 已处理的户籍，避免重复
     
     // 辅助函数：获取节点的唯一标识
     const getLinkId = (link) => `${link.source}-${link.target}-${link.relation}`
+    
+    // 辅助函数：查找节点（支持ID或身份证号）
+    const findPersonNode = (searchId, searchIdCard) => {
+      // 先按ID查找
+      let node = graphData.nodes.find(n => n.id === searchId && n.type === 'citizen')
+      // 如果没找到，按身份证号查找
+      if (!node && searchIdCard) {
+        node = graphData.nodes.find(n => n.type === 'citizen' && n.properties?.id_card === searchIdCard)
+      }
+      // 如果还是没找到，尝试从ID中提取身份证号（如 BJR20260500001 -> 查询数据库获取身份证号）
+      return node
+    }
     
     // 辅助函数：递归扩展节点
     const expandNode = (centerNodeId, currentDepth, maxDepthLimit) => {
@@ -475,25 +489,123 @@ app.post('/api/v1/graph/query', async (req, res) => {
       }
     }
     
-    if (entityId && entityType === 'citizen') {
-      // 1. 查找中心人员节点
-      const personNode = graphData.nodes.find(n => n.id === entityId && n.type === 'citizen')
+    // 辅助函数：处理户籍关联（查找同户籍的其他人员及其案底）
+    const processHouseholdRelations = (personId) => {
+      // 查找该人员的所有户籍关系
+      const householdLinks = graphData.links.filter(l => {
+        return (l.source === personId || l.target === personId) && 
+               (l.relation === '户主' || l.relation === '配偶' || l.relation === '子' || l.relation === '女')
+      })
+      
+      for (const link of householdLinks) {
+        const householdId = link.source === personId ? link.target : link.source
+        
+        // 如果该户籍已处理过，跳过
+        if (processedHouseholds.has(householdId)) continue
+        processedHouseholds.add(householdId)
+        
+        // 添加户籍节点
+        if (!nodeIds.has(householdId)) {
+          const householdNode = graphData.nodes.find(n => n.id === householdId)
+          if (householdNode) {
+            nodes.push(householdNode)
+            nodeIds.add(householdId)
+          }
+        }
+        
+        // 添加当前人员与户籍的关系
+        if (!linkIds.has(getLinkId(link))) {
+          links.push(link)
+          linkIds.add(getLinkId(link))
+        }
+        
+        // 查找该户籍下的所有其他人员
+        const householdMemberLinks = graphData.links.filter(l => {
+          return (l.source === householdId || l.target === householdId) && 
+                 (l.relation === '户主' || l.relation === '配偶' || l.relation === '子' || l.relation === '女') &&
+                 !linkIds.has(getLinkId(l))
+        })
+        
+        for (const memberLink of householdMemberLinks) {
+          const memberId = memberLink.source === householdId ? memberLink.target : memberLink.source
+          
+          // 添加户籍成员节点
+          if (!nodeIds.has(memberId)) {
+            const memberNode = graphData.nodes.find(n => n.id === memberId && n.type === 'citizen')
+            if (memberNode) {
+              nodes.push(memberNode)
+              nodeIds.add(memberId)
+            }
+          }
+          
+          // 添加户籍成员与户籍的关系
+          if (!linkIds.has(getLinkId(memberLink))) {
+            links.push(memberLink)
+            linkIds.add(getLinkId(memberLink))
+          }
+          
+          // 查找该户籍成员的案底记录（深度+1）
+          const criminalLinks = graphData.links.filter(l => {
+            return l.source === memberId && l.relation === '有案底' && !linkIds.has(getLinkId(l))
+          })
+          
+          for (const criminalLink of criminalLinks) {
+            const criminalId = criminalLink.target
+            
+            // 添加案底节点
+            if (!nodeIds.has(criminalId)) {
+              const criminalNode = graphData.nodes.find(n => n.id === criminalId)
+              if (criminalNode) {
+                nodes.push(criminalNode)
+                nodeIds.add(criminalId)
+              }
+            }
+            
+            // 添加案底关系
+            links.push(criminalLink)
+            linkIds.add(getLinkId(criminalLink))
+          }
+        }
+      }
+    }
+    
+    if (entityType === 'citizen') {
+      // 1. 查找中心人员节点（支持ID或身份证号）
+      let personNode = findPersonNode(entityId, idCard)
+      
+      // 如果通过ID没找到，尝试从数据库查询身份证号
+      if (!personNode && entityId) {
+        try {
+          const personResults = await query('SELECT ZJHM FROM FKD_BJR WHERE BH = ?', [entityId])
+          if (personResults.length > 0) {
+            const idCardFromDb = personResults[0].ZJHM
+            personNode = findPersonNode(null, idCardFromDb)
+          }
+        } catch (dbError) {
+          console.error('数据库查询失败:', dbError)
+        }
+      }
       
       if (personNode) {
         // 添加中心节点
-        nodes.push(personNode)
-        nodeIds.add(personNode.id)
+        if (!nodeIds.has(personNode.id)) {
+          nodes.push(personNode)
+          nodeIds.add(personNode.id)
+        }
         
-        // 2. 从中心节点开始扩展（支持路径长度为3的查询）
-        expandNode(entityId, 1, maxDepth)
+        // 2. 处理户籍关联（查找同户籍的其他人员及其案底）
+        processHouseholdRelations(personNode.id)
         
-        // 3. 统计各关系类型的数量
+        // 3. 从中心节点开始扩展其他关系（警情、民警等）
+        expandNode(personNode.id, 1, maxDepth)
+        
+        // 4. 统计各关系类型的数量
         const relationStats = {}
         links.forEach(link => {
           relationStats[link.relation] = (relationStats[link.relation] || 0) + 1
         })
         
-        // 4. 构建关系筛选栏数据
+        // 5. 构建关系筛选栏数据
         const relationFiltersData = allRelations.map(relation => ({
           type: relation,
           count: relationStats[relation] || 0,
